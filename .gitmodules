@@ -1,9 +1,1 @@
-[submodule "docs"]
-	path = docs
-	url = https://github.com/mradamcox/docs.git
-[submodule "archesdocs-v4"]
-	path = archesdocs-v4
-	url = https://github.com/mradamcox/docs.git
-[submodule "archesdocs_v4"]
-	path = archesdocs_v4
-	url = https://github.com/mradamcox/docs.git
+
