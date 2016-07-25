@@ -3,3 +3,6 @@
 	path = archesdocs-v4
 	url = https://github.com/mradamcox/docs.git
 	branch = gh-pages
+[submodule "archesdocs-HIP"]
+	path = archesdocs-HIP
+	url = https://github.com/mradamcox/archesHIPuserguide.git
