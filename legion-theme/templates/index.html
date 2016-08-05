@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% block content_title %}
+{% endblock %}
+
+
+{% set cnt = 0 %}
+
+<section class="article">
+{% if page %}
+{{page.content}}
+{% endif %}
+</section>
+
+<hr>
+{% for article in dates[:2] %} 
+<div class="article-summary">
+    <div class="date-line">{{ article.locale_date }}, by {{ article.author }}</div>
+    <h4>
+        <a href="{{ SITEURL }}/{{ article.url }}" rel=Bookmark title="Permalink to {{ article.title | striptags }}">{{ article.title }}</a>
+    </h4>
+    <div style="padding-left:25px">{{ article.summary }}</div>
+    
+</div>
+{% endfor %}
+
+
+
+{% endblock content %}
+<!-- END CONTENT -->
