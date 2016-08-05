@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}{{ page.title }}{%endblock%}
+
+{% block pageheader %}
+<div class="hp-header-inner">
+    <div class="page-header">
+        <div class="content-header">
+            <div id="title-block">
+            <h1>{{ page.title }}</h1>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+    <section class="article">
+    {% import 'translations.html' as translations with context %}
+    {{ translations.translations_for(page) }}
+    {{ page.content }}
+    </section>
+    
+    <hr>
+    
+    <div><h3><em>Some out-of-context past cartographic work from our team</em></h3></div>
+    
+    <div class="row">
+        <div class="hidden-xs">
+            <div class="gallery" align="center">
+                <div class="thumbnails">
+                    {% for src, desc in MAP_GALLERY %}
+                    <img onclick="preview.src=this.src; fullimg.href=this.src; fullimg.title=this.alt" src="{{src}}" alt="{{desc}}" />
+                    {% endfor %}
+                </div>
+                
+                <div class="preview" align="center">
+                    <a href="{{MAP_GALLERY[0][0].src}}" target="_blank" id="fullimg" title="{{MAP_GALLERY[0][1]}}">
+                        <img name="preview" src="{{MAP_GALLERY[0][0]}}" />
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="hidden-sm hidden-md hidden-lg">
+            <p>This gallery works best on a larger screen, so we recommend that you view it there. Thanks!</p>
+        </div>
+    </div>
+{% endblock %}
