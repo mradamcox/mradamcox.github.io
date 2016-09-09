@@ -8,14 +8,21 @@ body {
     background-color: #BDA691;
     margin-top: 0px;
     padding-top: 0px;
+    font-family: 'Lato', sans-serif;
 }
 
-h2, h3 {
-    text-align: center;
+h1, h2, h3, h4, h5 {
+    font-family: 'Carter One', cursive;
+    font-family: 'Acme', sans-serif;
+}
+
+p {
+    font-size: 16px;
+    
 }
 
 .container {
-    width: 875px;
+    max-width: 875px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 0px;
@@ -29,16 +36,16 @@ h2, h3 {
 }
 
 .content {
-    padding: 65px 35px 35px 35px;
+
 }
 
 /* NAVIGATION BAR */
-.navbar{
+.topbar{
     z-index: 1;
-    position: fixed;
+    border: none;
 }
 
-#navlist {
+.toplist {
     list-style:none;
     margin-left: auto;
     margin-right: auto;
@@ -48,7 +55,7 @@ h2, h3 {
     width: 875px;
 }
 
-#navlist li {
+.toplist li {
       padding-bottom: 5px;
       padding-top: 5px;
       display: inline;
@@ -59,7 +66,7 @@ h2, h3 {
       background-color: #9CABA1;
 }
 
-#navlist a {
+.toplist a {
     overflow:hidden;
     margin:0;
     text-decoration:none;
@@ -70,42 +77,44 @@ h2, h3 {
     color: black;
 }
 
-#navlist li:hover,#Hr-1 li:active,#Hr-1 li:focus {
+.nav-btn {
+      padding-bottom: 5px;
+      padding-top: 5px;
+      display: inline;
+      margin: 0;
+      float: left;
+      text-align: center;
+      background-color: #9CABA1;
+}
+
+.nav-btn.mobile-last {
+      border-bottom-left-radius:7px;
+      border-bottom-right-radius:7px;
+}
+
+.topbar a {
+    overflow:hidden;
+    margin:0;
+    text-decoration:none;
+    text-align:center;
+    font-weight:bold;
+    font-style:normal;
+    font-size:20px;
+    color: black;
+}
+
+.topbar h4 {
+    color: black;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.nav-btn:hover {
     background-color: #CF5734;
 }
 
-#navleft {
-    border-bottom-left-radius: 7px;
-}
-
-#navright {   
-    border-bottom-right-radius: 7px;
-}
-
-/* LOC BAR */
-.locbar {
-  position: fixed;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 25px;
-  margin-bottom: 0px;
-  padding-top: 11px;
-  width: 875px;
-  height: 20px;
-  border-bottom-left-radius: 7px;
-  border-bottom-right-radius: 7px;
-  text-decoration: none;
-  text-align: center;
-  font-weight: bold;
-  font-style: normal;
-  font-size: 13px;
-  color: black;
-  background-color: #BACAC5;
-}
-
-.locbar a {
- text-decoration: none;
-  color: black;
+.active {
+    background-color: #BACAC5;
 }
 
 a:link {
@@ -114,4 +123,25 @@ a:link {
 
 a:visited {
     color: #551A8B
+}
+hr {
+    border-top: dashed 1px #9caba1;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.audio-column {
+    padding: 10px;
+}
+
+.audio-column audio {
+    width: 100%;
+}
+
+.audio-column p {
+    text-align: center;
+}
+
+.content-article {
+    margin-top: 15px;
 }

@@ -1,10 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
+from datetime import date
 
 AUTHOR = u'Adam Cox'
-SITENAME = u'Adam Cox'
-SITEURL = ''
+SITENAME = u'Adam C F Cox'
+SITEURL = r'http://www.adamcfcox.com'
 
 PATH = 'content'
 
@@ -20,6 +21,9 @@ CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
+
+PUBLISH_DATE = date.today().strftime("%B %d, %Y")
+DEFAULT_DATE_FORMAT = ("%B %d, %Y")
 
 # Blogroll
 LINKS = (('Pelican', 'http://getpelican.com/'),
