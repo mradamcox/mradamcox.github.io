@@ -1,0 +1,533 @@
+
+
+<!DOCTYPE html>
+<html land="en".
+    <head>
+        <title>kvr USACE maps</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        
+        <!-- OpenLayers CSS -->
+        <link rel="stylesheet" href="http://openlayers.org/en/v3.0.0/css/ol.css" type="text/css">
+        
+        <!-- site css -->
+        <link rel="stylesheet" href="/css/main.css" type="text/css">
+        
+        <!-- insert app styles here -->
+        <style>
+        .ol-zoom {
+            font-family: Georgia, serif;
+            color: black !important;
+            background-color: white;
+        }
+        
+        .ol-zoom-in, .ol-zoom-out {
+            color: black !important;
+            background-color: #709FC9 !important;      
+        }
+        
+        .ol-attribution {
+            color: red !important;
+            background-color: white !important;
+            font-color: red;
+            
+        }
+        
+        .att {
+            color: red !important;
+            background-color: white !important;
+            font-color: red;    
+        }
+        
+        .ol-attribution ul {
+            color: black !important;
+            /*display: block !important;*/
+        }
+              
+        .ol-attribution ul li {
+            display: list-item !important;          
+        }
+        
+        
+        .ol-mouse-position {
+            background-color: #709FC9;
+            padding: 4px 8px 4px 8px;
+            border: 2px solid white;
+            font-family: "Lucida Console", Monaco, monospace;
+            font-size: small;
+            border-radius: 4px;
+        }
+        
+        .map {
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+            height: 600px;
+            box-shadow: 5px 5px 5px #888;
+            border-right: 2px solid black;
+            border-left: 2px solid black;
+        }
+            
+        html, body {
+        
+            font-family: Georgia, serif;
+        }
+        
+        a:link {
+            color: #364DC9
+        }
+        
+        a:visited {
+            color: #551A8B
+        }
+        
+        p {
+            padding: 0 20px 0 20px
+        }
+        
+        div#content {
+            margin-left: auto;
+            margin-right: auto;
+            width: 1100px;
+        }
+        
+        h1 {
+            vertical-align: text-top;
+            text-align: center;
+        }
+        
+        #rowhead {
+            border-right: 2px solid black;
+            padding-top: 5px;
+            width: 95px;
+            outline: 0;
+            position: relative;
+            height: 20px;
+            background-color: #709FC9;
+            text-align: center;
+            font-family: Georgia, serif;
+            font-size: small;
+        }
+
+        button {
+            border: 0;
+            padding: 0;
+            outline: 0;
+            position: relative;
+            height: 25px;
+            text-align: center;
+            font-family: Georgia, serif;
+            font-size: small;
+        }
+        
+        button.lite {
+            background-color: transparent;
+            font-size: medium;
+        }
+        
+        button:hover {
+            background-color: #AB1722;
+        }
+        
+        button.lite:hover {
+            color: #AB1722 !important;
+            background-color: transparent;
+        }
+
+        button.selected {
+            background-color: #83A854;
+        }
+        
+        button.layer {
+            width: 160px;
+        }
+        
+        button.zoom {
+            width: 50px
+        }    
+
+        #titlebar {
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+            height: 50px;
+            box-shadow: 5px 5px 5px #888;
+            background-color: #aaa;
+            border: 2px solid black;
+        }
+        
+        #footbar {
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+            box-shadow: 5px 5px 5px #888;
+            background-color: #aaa;
+            border: 2px solid black;
+        }
+        
+        ul.bar li {
+            display: inline-block;
+            float: left;
+            height: 25px;
+        }
+        
+        ul.bar li.last {
+            border-right: 2px solid black
+        }
+        
+        ul.bar {
+            padding: 0;
+            margin: 0;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+            height: 25px;
+            box-shadow: 5px 5px 5px #888;
+            background-color: #aaa;
+            border-right: 2px solid black;
+            border-left: 2px solid black;
+            border-bottom: 2px solid black;
+            text-align: center;
+        }
+        
+        #slider-id {
+            width: 492px;
+            margin: 10px;
+        }
+
+        </style>
+    </head>
+    <body>
+    
+        <!-- insert app html tags here -->
+        <div id="content">
+            <!-- <div id="titlebar">
+                <h1>natchitoches parish, la</h1>               
+            </div>
+            -->
+            <div id="navbar" >
+                <ul id="bmlist", class="bar", style="border-top: 2px solid black">
+                    <li id="rowhead"><b>BASEMAP</b></li>
+                    <li><button id="relief" class="layer">relief</button></li>
+                    <li><button id="osm" class="layer" class="selected">open street map</button></li>
+                    <li><button id="imagery" class="layer">aerial imagery</button></li>
+                    <li class="last"><button id="blank" class="layer" style="width:75px"><em>blank</em></button></li>
+                </ul>
+            </div>
+
+            <div id="navbar">
+                <ul id="overlist" class="bar">
+                    <li id="rowhead"><b>OVERLAY</b></li>
+                    <li><button id="coe" class="layer" class="selected">army corps of engineers</button></li>
+                    <li class="last"><button id="none" class="layer" style="width:75px"><em>none</em></button></li>
+                </ul>
+            </div>
+            
+			<!--
+            <div id="navbar">
+                <ul id="reflist" class="bar">
+                    <li id="rowhead"><b>REFERENCE</b></li>
+                    <li class="last"><button id="plssref" class="layer">plss</button></li>
+                </ul>
+            </div>
+			-->
+            
+            <div id="map" class="map"></div>
+            
+            <div id="footbar">
+			<!--
+                <p style="text-align:left"><b>what am I looking at?</b> <button id="showinfo" class="lite">show</button> | <button id="hideinfo" class="lite">hide</button>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			-->
+                <p style="text-align:left"><b style="color:#AB1722">IMPORTANT: note on the accuracy of these historic maps</b> <button id="showacc" class="lite">show</button> | <button id="hideacc" class="lite">hide</button></p>
+                
+                <!-- paragraphs for the georeferencing note -->
+                <p id="accnote" style="display:none"><em>The process of placing historic maps on current maps ("georeferencing") is done by matching points on the historic map to corresponding points on a current basemap.  In this case, the USGS topo map and the relief maps were used.  It is not an exact process.  One can see above how the historical documents fit well in some places, and badly in others.  This is to say that the historic maps are best considered as showing features in their current day </em>vicinity<em>, not their exact location.</em></p>
+                
+                <!-- paragraphs for the overlay notes 
+                <p id="coemap" style="display:none"><b>confederate maps:</b> These maps all come from the <a href="http://research.archives.gov/description/305566" target="_blank">Civil Works Map File</a>.  They are purportedly captured confederate maps from the Civil War, however, little scholarship has been carried out on them.</p>
+                
+                
+                <p id="osmnote" style="display:none"><b>open street map:</b> Tiles courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a>, Data &copy; <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a> contributors, <a href="http://www.openstreetmap.org/copyright" target="_blank">ODbL</a></p>  
+                <p id="imagerynote" style="display:none"><b>aerial imagery:</b> Tiles courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a>, portions courtesy of NASA/JPL-Caltech and U.S. Department of Agriculture Farm Service Agency</p>
+                <p id="usgsnote" style="display:none"><b>usgs topo:</b> This is a seamless mosaic of 24k USGS Quads downloaded from <a href="http://datagateway.nrcs.usda.gov/" target="_blank">NRCS</a> that was clipped to the La DOTD Natchitoches Parish boundary, and transformed into tiles using <a href="https://www.mapbox.com/tilemill/" target="_blank">TileMill</a>.</p> 
+                <p id="reliefnote" style="display:none"><b>relief:</b> This layer is a hillshade derivative of LiDAR data acquired through <a href="http://atlas.lsu.edu">Atlas</a>, the Louisiana statewide GIS.  The data was produced for the <a href="http://atlas.lsu.edu/central/la_lidar_project.pdf" target="_blank">Louisiana State LiDAR Project</a>.  The original tiles were combined and clipped in ArcMap and new tiles were generated in <a href="https://www.mapbox.com/tilemill/" target="_blank">TileMill</a>.</p>
+                <p id="elevationreliefnote" style="display:none"><b>elevation + relief:</b> This layer is a combination of hillshade and elevation data derived from LiDAR data acquired through <a href="http://atlas.lsu.edu">Atlas</a>, the Louisiana statewide GIS.  The data was produced for the <a href="http://atlas.lsu.edu/central/la_lidar_project.pdf" target="_blank">Louisiana State LiDAR Project</a>.  The original tiles were combined and clipped in ArcMap and new tiles were generated in <a href="https://www.mapbox.com/tilemill/" target="_blank">TileMill</a>.</p>                        
+				-->
+			</div>
+        </div>
+
+        <!-- OpenLayers JS -->
+        <script src="http://openlayers.org/en/v3.0.0/build/ol.js" type="text/javascript"></script>
+        
+        <!-- JQuery JS -->
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+
+        <!-- actual map code -->
+        <script>
+        
+        var plssref = new ol.layer.Tile({
+            name: 'plssref',
+            source: new ol.source.TileWMS({
+                //url: 'http://199.184.68.66:8080/geoserver/refshp/wms/',
+                url: 'http://54.148.201.140:8080/geoserver/vect/wms/',
+                params: {
+                    //'LAYERS': 'refshp:PLSS_towns',
+                    'LAYERS': 'vect:PLSS_towns',
+                    'TILED': true,
+                    //'singleTile':true,
+                    //'ratio':5
+                },
+                serverType: 'geoserver'   
+            })
+        });
+        
+        arrayOSM = ["http://otile1.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpg",
+                    "http://otile2.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpg",
+                    "http://otile3.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpg",
+                    "http://otile4.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpg"];
+               
+        var osm = new ol.layer.Tile({
+            name: 'osm',
+            preload: Infinity,
+            source: new ol.source.MapQuest({
+                layer: 'osm',           
+            })
+        });
+        
+        var imagery = new ol.layer.Tile({
+            name: 'imagery',
+            preload: Infinity,
+            source: new ol.source.MapQuest({
+                layer: 'sat'
+            })
+        });
+        
+        var usgs = new ol.layer.Tile({
+            name: 'usgs',
+            source: new ol.source.XYZ({
+                url: 'http://199.184.68.66/tiles/drg/{z}/{x}/{y}.png'
+            })
+        });
+        
+        var relief = new ol.layer.Tile({
+            name: 'relief',
+            source: new ol.source.TileWMS({
+                url: 'http://54.148.201.140:8080/geoserver/vernon_co/wms/',
+				params: {
+				    'LAYERS':'vc_relief',
+					'TILED':true,
+				},
+				serverType: 'geoserver'
+			}),
+        });
+        
+        var elev = new ol.layer.Tile({
+            name: 'elev',
+            source: new ol.source.XYZ({
+                url: 'http://54.148.201.140/tiles/vernonelevation/{z}/{x}/{y}.png'
+            }),
+            opacity: .95
+        });
+        
+        var coe = new ol.layer.Tile({
+            name: 'coemap',
+            source: new ol.source.XYZ({
+                url: 'http://vernonco.s3-website-us-west-2.amazonaws.com/tiles/kvrcoe/{z}/{x}/{y}.png'
+            })
+        });
+        
+        var blank = new ol.layer.Tile({
+            source: new ol.source.TileWMS({
+                url: '',
+            })
+        });
+        
+        var collection = new ol.Collection([relief,coe]);
+        $('#relief').addClass('selected');
+        $('#coe').addClass('selected');
+        
+        var noteid_arr = ["p#osmnote","p#roadmapnote"];
+        var info_shown = false
+        
+        var controls = [
+            new ol.control.MousePosition({
+                undefinedHTML: '<b>n/a</b>',
+                projection: 'EPSG:4326',
+                coordinateFormat: function(coordinate) {
+                    return ol.coordinate.format(coordinate, '<b>{x}, {y}</b>', 3)
+                }
+            }),
+            new ol.control.Zoom({
+                zoomInTipLabel: 'zoom in',
+                zoomOutTipLabel: 'zoom out'
+            }),
+            new ol.control.Attribution({
+                tipLabel: 'layer attributions',
+            })
+        ];
+        
+        var map = new ol.Map({
+            target: 'map',
+            renderer: 'canvas',
+            layers: collection,
+            controls: controls,
+            view: new ol.View({
+                center: ol.proj.transform([-90.627068, 43.595931], 'EPSG:4326', 'EPSG:3857'),
+                minZoom: 9,
+                maxZoom: 18,
+                zoom: 13,
+            }),
+            minZoomLevel: 7,
+        });
+        
+        function selectBasemap() {
+            $('ul.bar#bmlist button.layer').on('click', function() {
+                $('ul.bar#bmlist button').removeClass('selected');
+                $(this).addClass('selected');
+            });
+        };
+        
+        function selectOverlay() {
+            $('ul.bar#overlist button.layer').on('click', function() {
+                $('ul.bar#overlist button').removeClass('selected');
+                $(this).addClass('selected');
+            });
+        };
+        
+        function showInfo() {
+            $("#showinfo").click(function(){
+                console.log(noteid_arr);
+                $(noteid_arr.join([separator = ','])).show();
+                info_shown = true;
+            });
+        };
+            
+        function hideInfo() {
+            $("#hideinfo").click(function(){
+                console.log(noteid_arr);
+                $(noteid_arr.join([separator = ','])).hide();
+                info_shown = false;
+            });
+        };
+
+        
+        
+        $(document).ready(function() {
+        
+            $("#hideacc").click(function(){
+                $("p#accnote").hide();
+            });
+            $("#showacc").click(function(){
+                $("p#accnote").show();
+            });
+            
+            selectBasemap();
+            selectOverlay();
+            
+            showInfo();
+            hideInfo();
+            
+            $('#imagery').on('click', function() {
+                collection.setAt(0, imagery);
+                map.setLayerGroup = new ol.layer.Group(collection);
+                
+                $(noteid_arr.join([separator = ','])).hide();
+                noteid_arr[0] = "p#imagerynote";
+                if (info_shown == true) {
+                    $(noteid_arr.join([separator = ','])).show();
+                };
+            });
+            
+            $('#plssref').on('click', function() {
+                if ($(this).hasClass('selected')){
+                    $(this).removeClass('selected');
+                    collection.removeAt(2);
+                } else {
+                    $(this).addClass('selected');
+                    collection.setAt(2,plssref);
+                }
+                map.setLayerGroup = new ol.layer.Group(collection);
+            });
+            
+            $('#osm').on('click', function() {
+                collection.setAt(0, osm);
+                map.setLayerGroup = new ol.layer.Group(collection);
+                
+                $(noteid_arr.join([separator = ','])).hide();
+                noteid_arr[0] = "p#osmnote";
+                if (info_shown == true) {
+                    $(noteid_arr.join([separator = ','])).show();
+                };
+            });
+            
+            $('#relief').on('click', function() {
+                collection.setAt(0, relief);
+                map.setLayerGroup = new ol.layer.Group(collection);
+                
+                $(noteid_arr.join([separator = ','])).hide();
+                noteid_arr[0] = "p#reliefnote";
+                if (info_shown == true) {
+                    $(noteid_arr.join([separator = ','])).show();
+                };
+            });
+            
+            $('#elev').on('click', function() {
+                collection.setAt(0, elev);
+                map.setLayerGroup = new ol.layer.Group(collection);
+                
+                $(noteid_arr.join([separator = ','])).hide();
+                noteid_arr[0] = "p#elevationreliefnote";
+                if (info_shown == true) {
+                    $(noteid_arr.join([separator = ','])).show();
+                };
+            });
+            
+            $('#usgs').on('click', function() {
+                collection.setAt(0, usgs);
+                map.setLayerGroup = new ol.layer.Group(collection);
+                
+                $(noteid_arr.join([separator = ','])).hide();
+                noteid_arr[0] = "p#usgsnote";
+                if (info_shown == true) {
+                    $(noteid_arr.join([separator = ','])).show();
+                };
+            });
+            
+            $('#blank').on('click', function() {
+                collection.setAt(0, blank);
+                map.setLayerGroup = new ol.layer.Group(collection);
+                
+                $(noteid_arr.join([separator = ','])).hide();
+                noteid_arr[0] = "_";
+                if (info_shown == true) {
+                    $(noteid_arr.join([separator = ','])).show();
+                };
+            });
+            
+            $('#coe').on('click', function() {
+                collection.setAt(1, coe);
+                map.setLayerGroup = new ol.layer.Group(collection);
+                
+                $(noteid_arr.join([separator = ','])).hide();
+                noteid_arr[1] = "p#roadmapnote";
+                if (info_shown == true) {
+                    $(noteid_arr.join([separator = ','])).show();
+                };
+            });
+            
+            $('#none').on('click', function() {
+                collection.setAt(1, blank)
+                map.setLayerGroup = new ol.layer.Group(collection);
+                
+                $(noteid_arr.join([separator = ','])).hide();
+                noteid_arr[1] = "_";
+                if (info_shown == true) {
+                    $(noteid_arr.join([separator = ','])).show();
+                };
+            });
+        }); 
+        
+        </script>        
+    </body>
+</html>
