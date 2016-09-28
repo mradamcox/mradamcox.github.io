@@ -102,7 +102,7 @@
             name: 'fedland',
             source: new ol.source.TileWMS({
                 //url: 'http://199.184.68.66:8080/geoserver/refshp/wms/',
-                url: 'http://www.adamcfcox.com:8080/geoserver/sf/wms/',
+                url: 'http://54.148.201.140:8080/geoserver/sf/wms/',
                 params: {
                     //'LAYERS': 'refshp:PLSS_towns',
                     'LAYERS': 'sf:NHRP_bldg_pt',
@@ -120,6 +120,20 @@
             source: new ol.source.MapQuest({
                 layer: 'osm',           
             })
+        });
+        
+        var osm_attr = new ol.Attribution({
+            html: '&copy; <a href="http://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors.'
+        });
+        
+        var osm = new ol.layer.Tile({
+            name: 'osm',
+            preload: Infinity,
+            source: new ol.source.XYZ({
+                url: 'https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                //url: 'https://a.tile.thunderforest.com/spinal-map/{z}/{x}/{y}.png',
+                attributions: [osm_attr]
+            }),
         });
                 
         var collection = new ol.Collection([osm,fedland]);
