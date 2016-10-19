@@ -14,8 +14,8 @@
         <!-- OpenLayers CSS -->
         <link rel="stylesheet" href="http://openlayers.org/en/v3.0.0/css/ol.css" type="text/css">
         <!-- local CSS -->
-        <link rel="stylesheet" href="http://www.adamcfcox.com/css/main.css" type="text/css">
-        <link rel="stylesheet" href="http://www.adamcfcox.com/css/map.css" type="text/css">
+        <link rel="stylesheet" href="http://www.adamcfcox.com/theme/css/main.css" type="text/css">
+        <link rel="stylesheet" href="http://www.adamcfcox.com/theme/css/map.css" type="text/css">
         
     </head>
     <body>
@@ -27,7 +27,7 @@
                     <ul id="bmlist" class="bar">
                         <li id="rowhead"><b>BASEMAP</b></li>
                         <li><button id="osm" class="layer">open street map</button></li>
-                        <li><button id="imagery" class="layer">aerial imagery</button></li>
+                        <!--<li><button id="imagery" class="layer">aerial imagery</button></li>-->
                         <li><button id="usgs" class="layer">usgs topo</button></li>
                         <li><button id="relief" class="layer">relief</button></li>
                         <li><button id="elev" class="layer">elevation + relief</button></li>
@@ -53,7 +53,6 @@
                         <li id="rowhead"><b>REFERENCE</b></li>
                         <li><button id="plssref" class="layer">plss</button></li>
                         <li class="last"><button id="fedland" class="layer">federal land (non-NPS)</button></li>
-                        <li>&nbsp;&nbsp;listen to a few <a href="http://www.adamcfcox.com/audio">interviews<a> with locals about growing up on the cane river</li>
                     </ul>
                 </div>
             </div>
@@ -129,12 +128,16 @@
                     "http://otile2.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpg",
                     "http://otile3.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpg",
                     "http://otile4.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpg"];
-               
-        var osm = new ol.layer.Tile({
+        
+        var osm_attr = new ol.Attribution({
+            html: '&copy; <a href="http://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors.'
+        });
+        
+        var osm =  new ol.layer.Tile({
             name: 'osm',
-            preload: Infinity,
-            source: new ol.source.MapQuest({
-                layer: 'osm',           
+            source: new ol.source.XYZ({
+                url: 'https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                attributions: [osm_attr]
             })
         });
         
@@ -431,16 +434,16 @@
             showInfo();
             hideInfo();
             
-            $('#imagery').on('click', function() {
-                collection.setAt(0, imagery);
-                map.setLayerGroup = new ol.layer.Group(collection);
-                
-                $(noteid_arr.join([separator = ','])).hide();
-                noteid_arr[0] = "p#imagerynote";
-                if (info_shown == true) {
-                    $(noteid_arr.join([separator = ','])).show();
-                };
-            });
+            //$('#imagery').on('click', function() {
+            //    collection.setAt(0, imagery);
+            //    map.setLayerGroup = new ol.layer.Group(collection);
+            //    
+            //    $(noteid_arr.join([separator = ','])).hide();
+            //    noteid_arr[0] = "p#imagerynote";
+            //    if (info_shown == true) {
+            //        $(noteid_arr.join([separator = ','])).show();
+            //    };
+            //});
             
             $('#plssref').on('click', function() {
                 if ($(this).hasClass('selected')){
