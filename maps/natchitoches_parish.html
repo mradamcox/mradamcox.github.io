@@ -38,8 +38,8 @@
                 <div>
                     <ul id="overlist" class="bar">
                         <li id="rowhead"><b>OVERLAY</b></li>
-                        <li><button id="road" class="layer">civil war road map</button></li>
                         <li><button id="plat" class="layer">historic plat maps</button></li>
+                        <li><button id="road" class="layer">civil war road map</button></li>
                         <li><button id="map174" class="layer">natchitoches 1866</button></li>
                         <li><button id="confed" class="layer">confederate maps</button></li>
                         <li><button id="confedtrans" class="layer">conf. maps trans.</button></li>
@@ -52,7 +52,7 @@
                     <ul id="reflist" class="bar">
                         <li id="rowhead"><b>REFERENCE</b></li>
                         <li><button id="plssref" class="layer">plss</button></li>
-                        <li class="last"><button id="fedland" class="layer">federal land (non-NPS)</button></li>
+                        <li class="last"><button id="privateland" class="layer">private land in USFS</button></li>
                     </ul>
                 </div>
             </div>
@@ -66,7 +66,7 @@
                 
                 
                 <!-- paragraphs for the georeferencing note -->
-                <p id="accnote" style="display:none"><em>The process of placing historic maps on current maps ("georeferencing") is done by matching points on the historic map to corresponding points on a current basemap.  In this case, the USGS topo map and the relief maps were used.  It is not an exact process.  One can see above how the historical documents fit well in some places, and badly in others.  This is to say that the historic maps are best considered as showing features in their current day </em>vicinity<em>, not their exact location.</em></p>
+                <p id="accnote" class="map-note"><em>The process of placing historic maps on current maps ("georeferencing") is done by matching points on the historic map to corresponding points on a current basemap.  In this case, the USGS topo map and the relief maps were used.  It is not an exact process.  One can see above how the historical documents fit well in some places, and badly in others.  This is to say that the historic maps are best considered as showing features in their current day </em>vicinity<em>, not their exact location.</em></p>
                 
                 <!-- paragraphs for the overlay notes -->
                 <p id="roadmapnote" style="display:none"><b>confederate road map c. 1864:</b> This is a captured confederate map showing the route of the road between Natchitoches and Alexandria (only the portions within Natchitoches Parish are shown here).  It was originally drawn in many segments on both sides of a single piece of paper.  It has been scanned, edited, and georeferenced for display on this map.  In the National Archives it is record number Z33-138 in the <a href="http://research.archives.gov/description/305566" target="_blank">Civil Works Map File</a>, and at the <a href="https://library.nsula.edu/cammie-henry-research-center/" target="_blank">Cammie G. Henry Research Library</a> it is map numbers 1470 and 1471.</p>
@@ -95,10 +95,8 @@
         var plssref = new ol.layer.Tile({
             name: 'plssref',
             source: new ol.source.TileWMS({
-                //url: 'http://199.184.68.66:8080/geoserver/refshp/wms/',
-                url: 'http://54.148.201.140:8080/geoserver/vect/wms/',
+                url: 'http://crhim.canerivernha.org/geoserver/vect/wms/',
                 params: {
-                    //'LAYERS': 'refshp:PLSS_towns',
                     'LAYERS': 'vect:PLSS_towns',
                     'TILED': true,
                     //'singleTile':true,
@@ -108,14 +106,12 @@
             })
         });
         
-        var fedland = new ol.layer.Tile({
-            name: 'fedland',
+        var privland = new ol.layer.Tile({
+            name: 'privland',
             source: new ol.source.TileWMS({
-                //url: 'http://199.184.68.66:8080/geoserver/refshp/wms/',
-                //url: 'http://54.148.201.140:8080/geoserver/vect/wms/',
+                url: 'http://crhim.canerivernha.org/geoserver/wms/',
                 params: {
-                    //'LAYERS': 'refshp:PLSS_towns',
-                    'LAYERS': 'vect:fedland020',
+                    'LAYERS': 'vect:kisatchie_private_land',
                     'TILED': true,
                     //'singleTile':true,
                     //'ratio':5
@@ -152,32 +148,28 @@
         var usgs = new ol.layer.Tile({
             name: 'usgs',
             source: new ol.source.XYZ({
-                //url: 'http://199.184.68.66/tiles/drg/{z}/{x}/{y}.png'
-                url: 'https://s3-us-west-2.amazonaws.com/natchdata/tiles/drg/{z}/{x}/{y}.png'
+                url: 'http://crhim.canerivernha.org/tiles/drg/{z}/{x}/{y}.png'
             })
         });
         
         var civilwarroadmap = new ol.layer.Tile({
             name: 'road',
             source: new ol.source.XYZ({               
-                //url: 'http://199.184.68.66/tiles/civilwarroadmap/{z}/{x}/{y}.png'
-                url: 'https://s3-us-west-2.amazonaws.com/natchdata/tiles/civilwarroadmap/{z}/{x}/{y}.png'
+                url: 'http://crhim.canerivernha.org/tiles/civilwarroadmap/{z}/{x}/{y}.png'
             })
         });
         
         var relief = new ol.layer.Tile({
             name: 'relief',
             source: new ol.source.XYZ({
-                //url: 'http://199.184.68.66/tiles/hillshade/{z}/{x}/{y}.png'
-                url: 'https://s3-us-west-2.amazonaws.com/natchdata/tiles/hillshade/{z}/{x}/{y}.png'
+                url: 'http://crhim.canerivernha.org/tiles/hillshade/{z}/{x}/{y}.png'
             }),
         });
         
         var elev = new ol.layer.Tile({
             name: 'elev',
             source: new ol.source.XYZ({
-                //url: 'http://199.184.68.66/tiles/relief_basemap/{z}/{x}/{y}.png'
-                url: 'https://s3-us-west-2.amazonaws.com/natchdata/tiles/relief_basemap/{z}/{x}/{y}.png'
+                url: 'http://crhim.canerivernha.org/tiles/relief_basemap/{z}/{x}/{y}.png'
             }),
             opacity: .95
         });
@@ -185,12 +177,9 @@
         var confed_full = new ol.layer.Tile({
             name: 'confed_full',
             source: new ol.source.TileWMS({
-                //url: 'http://crhim.canerivernha.org:8080/geoserver/confed_maps/wms/',
-                url: 'http://54.148.201.140:8080/geoserver/raster/wms/',
+                url: 'http://crhim.canerivernha.org/geoserver/wms/',
                 params: {
-                    //'LAYERS': 'confed_parish:sheet42_full',
-                    //'LAYERS': 'confed_full',
-                    'LAYERS': 'raster:confed_color',
+                    'LAYERS': 'confed_maps:confed_full',
                     'TILED': true,
                     },
                 serverType: 'geoserver'   
@@ -200,11 +189,9 @@
         var confed_trans = new ol.layer.Tile({
             name: 'confed_full',
             source: new ol.source.TileWMS({
-                url: 'http://crhim.canerivernha.org:8080/geoserver/confed_maps/wms/',
-                //url: 'http://54.148.201.140:8080/geoserver/raster/wms/',
+                url: 'http://crhim.canerivernha.org/geoserver/wms/',
                 params: {
-                    //'LAYERS': 'confed_parish:sheet42_full',
-                    'LAYERS': 'confed_trans',
+                    'LAYERS': 'confed_maps:confed_trans',
                     'TILED': true,
                     },
                 serverType: 'geoserver'   
@@ -214,12 +201,12 @@
         var platmaps = new ol.layer.Tile({
             name: 'platmaps',
             source: new ol.source.XYZ({
-                //url: 'http://199.184.68.66/tiles/tiles/{z}/{x}/{y}.png'
-                url: 'https://s3-us-west-2.amazonaws.com/natchdata/tiles/historictownplats/{z}/{x}/{y}.png'
+                url: 'http://crhim.canerivernha.org/tiles/platmaps_trans/{z}/{x}/{y}.png'
             })
         });
         
-        var platmaps_g = new ol.layer.Tile({
+        // not in use, prefer to use tiles
+        var platmaps_wms = new ol.layer.Tile({
             name: 'platmaps',
             source: new ol.source.TileWMS({
                 url: 'http://54.148.201.140:8080/geoserver/raster/wms/',
@@ -231,39 +218,11 @@
             })
         });
         
-        var platmaps = new ol.layer.Tile({
-            name: 'platmaps',
-            source: new ol.source.TileWMS({
-                url: 'http://54.148.201.140:8080/geoserver/wms/',
-                params: {
-                    'LAYERS': 'vect:amcem_stumps',
-                },
-                serverType: 'geoserver'
-            })
-        })
-        
-        var sanborn = new ol.layer.Tile({
-            name: 'map174',
-            source: new ol.source.TileWMS({
-                url: 'http://199.184.68.66:8080/geoserver/sanborn/wms/',
-                //url: 'http://54.148.201.140:8080/geoserver/raster/wms/',
-                params: {
-                    //'LAYERS': 'natchcity:map174',
-                    'LAYERS': 'sanborn_1892',
-                    'TILED': true,
-                    'STYLES': 'BlackToDarkGrey170',
-                    },
-                serverType: 'geoserver'   
-            })
-        });
-        
         var map174 = new ol.layer.Tile({
             name: 'map174',
             source: new ol.source.TileWMS({
-                //url: 'http://199.184.68.66:8080/geoserver/natchcity/wms/',
-                url: 'http://54.148.201.140:8080/geoserver/raster/wms/',
+                url: 'http://crhim.canerivernha.org/geoserver/wms/',
                 params: {
-                    //'LAYERS': 'natchcity:map174',
                     'LAYERS': 'raster:map174',
                     'TILED': true,
                     },
@@ -384,13 +343,13 @@
                 map.setLayerGroup = new ol.layer.Group(collection);
             });
             
-            $('#fedland').on('click', function() {
+            $('#privateland').on('click', function() {
                 if ($(this).hasClass('selected')){
                     $(this).removeClass('selected');
-                    collection.remove(fedland);
+                    collection.remove(privland);
                 } else {
                     $(this).addClass('selected');
-                    collection.push(fedland);
+                    collection.push(privland);
                 }
                 map.setLayerGroup = new ol.layer.Group(collection);
             });
@@ -473,7 +432,7 @@
             });
             
             $('#map174').on('click', function() {
-                collection.setAt(1, sanborn);
+                collection.setAt(1, map174);
                 map.setLayerGroup = new ol.layer.Group(collection);
                 
                 $(noteid_arr.join([separator = ','])).hide();
