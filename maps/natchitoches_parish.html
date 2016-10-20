@@ -112,7 +112,7 @@
             name: 'fedland',
             source: new ol.source.TileWMS({
                 //url: 'http://199.184.68.66:8080/geoserver/refshp/wms/',
-                url: 'http://54.148.201.140:8080/geoserver/vect/wms/',
+                //url: 'http://54.148.201.140:8080/geoserver/vect/wms/',
                 params: {
                     //'LAYERS': 'refshp:PLSS_towns',
                     'LAYERS': 'vect:fedland020',
@@ -185,11 +185,12 @@
         var confed_full = new ol.layer.Tile({
             name: 'confed_full',
             source: new ol.source.TileWMS({
-                url: 'http://crhim.canerivernha.org:8080/geoserver/confed_maps/wms/',
-                //url: 'http://54.148.201.140:8080/geoserver/raster/wms/',
+                //url: 'http://crhim.canerivernha.org:8080/geoserver/confed_maps/wms/',
+                url: 'http://54.148.201.140:8080/geoserver/raster/wms/',
                 params: {
                     //'LAYERS': 'confed_parish:sheet42_full',
-                    'LAYERS': 'confed_full',
+                    //'LAYERS': 'confed_full',
+                    'LAYERS': 'raster:confed_color',
                     'TILED': true,
                     },
                 serverType: 'geoserver'   
@@ -209,79 +210,7 @@
                 serverType: 'geoserver'   
             })
         });
-        
-        
-        var sheet41_trans = new ol.layer.Tile({
-            name: 'confed_trans',
-            source: new ol.source.TileWMS({
-                //url: 'http://199.184.68.66:8080/geoserver/confed_parish/wms/',
-                url: 'http://54.148.201.140:8080/geoserver/raster/wms/',
-                params: {
-                    //'LAYERS': 'confed_parish:sheet42_trans',
-                    'LAYERS': 'raster:Sheet41_trim',
-                    'TILED': true,
-                    },
-                serverType: 'geoserver'   
-            })
-        });
-        
-        var sheet42_trans = new ol.layer.Tile({
-            name: 'confed_trans',
-            source: new ol.source.TileWMS({
-                //url: 'http://199.184.68.66:8080/geoserver/confed_parish/wms/',
-                url: 'http://54.148.201.140:8080/geoserver/raster/wms/',
-                params: {
-                    //'LAYERS': 'confed_parish:sheet42_trans',
-                    'LAYERS': 'raster:Sheet42_trim',
-                    'TILED': true,
-                    },
-                serverType: 'geoserver'   
-            })
-        });
-        
-        var sheet43_trans = new ol.layer.Tile({
-            name: 'confed_trans',
-            source: new ol.source.TileWMS({
-                //url: 'http://199.184.68.66:8080/geoserver/confed_parish/wms/',
-                url: 'http://54.148.201.140:8080/geoserver/raster/wms/',
-                params: {
-                    //'LAYERS': 'confed_parish:sheet42_trans',
-                    'LAYERS': 'raster:Sheet43_trim',
-                    'TILED': true,
-                    },
-                serverType: 'geoserver'   
-            })
-        });
-        var sheet44_trans = new ol.layer.Tile({
-            name: 'confed_trans',
-            source: new ol.source.TileWMS({
-                //url: 'http://199.184.68.66:8080/geoserver/confed_parish/wms/',
-                url: 'http://54.148.201.140:8080/geoserver/raster/wms/',
-                params: {
-                    //'LAYERS': 'confed_parish:sheet42_trans',
-                    'LAYERS': 'raster:Sheet44_trim',
-                    'TILED': true,
-                    },
-                serverType: 'geoserver'   
-            })
-        });
-        var sheet45_trans = new ol.layer.Tile({
-            name: 'confed_trans',
-            source: new ol.source.TileWMS({
-                //url: 'http://199.184.68.66:8080/geoserver/confed_parish/wms/',
-                url: 'http://54.148.201.140:8080/geoserver/raster/wms/',
-                params: {
-                    //'LAYERS': 'confed_parish:sheet42_trans',
-                    'LAYERS': 'raster:Sheet45_trim',
-                    'TILED': true,
-                    },
-                serverType: 'geoserver'   
-            })
-        });
-        
-        
-        //var collection = new ol.Collection([sheet42_trans,sheet41_trans,sheet43_trans,sheet44_trans,sheet45_trans]);
-        
+
         var platmaps = new ol.layer.Tile({
             name: 'platmaps',
             source: new ol.source.XYZ({
@@ -290,8 +219,8 @@
             })
         });
         
-        var platmaps_GEOSERVER = new ol.layer.Tile({
-            name: 'platmaps_GEOSERVER',
+        var platmaps_g = new ol.layer.Tile({
+            name: 'platmaps',
             source: new ol.source.TileWMS({
                 url: 'http://54.148.201.140:8080/geoserver/raster/wms/',
                 params: {
@@ -301,6 +230,17 @@
                 serverType: 'geoserver'   
             })
         });
+        
+        var platmaps = new ol.layer.Tile({
+            name: 'platmaps',
+            source: new ol.source.TileWMS({
+                url: 'http://54.148.201.140:8080/geoserver/wms/',
+                params: {
+                    'LAYERS': 'vect:amcem_stumps',
+                },
+                serverType: 'geoserver'
+            })
+        })
         
         var sanborn = new ol.layer.Tile({
             name: 'map174',
@@ -330,26 +270,14 @@
                 serverType: 'geoserver'   
             })
         });
-        
-        var amcem_plots = new ol.layer.Tile({
-            name: "amcem_plots",
-            source: new ol.source.TileWMS({
-                url: 'http://54.148.201.140:8080/geoserver/vect/wms/',
-                params: {
-                    'LAYERS': 'vect:plots_amcem',
-                    'TILED': true,
-                    },
-                serverType: 'geoserver'   
-            }),
-        });
-        
+
         var blank = new ol.layer.Tile({
             source: new ol.source.TileWMS({
                 url: '',
             })
         });
         
-        var collection = new ol.Collection([osm,platmaps,amcem_plots]);
+        var collection = new ol.Collection([osm,platmaps]);
         
         $('#osm').addClass('selected');
         $('#plat').addClass('selected');
