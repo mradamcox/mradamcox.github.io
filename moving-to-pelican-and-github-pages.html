@@ -1,0 +1,110 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://www.adamcfcox.com/theme/css/plugins/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="http://www.adamcfcox.com/theme/js/plugins/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="http://www.adamcfcox.com/theme/js/plugins/bootstrap.min.js"></script>
+    
+    <!-- webstie css -->
+    <link rel="stylesheet" href="http://www.adamcfcox.com/theme/css/main.css">
+    <link rel="stylesheet" href="http://www.adamcfcox.com/theme/css/panel.css">
+    <link rel="stylesheet" href="http://www.adamcfcox.com/theme/css/map.css">
+    
+    <!--  ADD GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Carter+One|Lato|Pacifico" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">
+    
+    
+    <title>Moving to Pelican and GitHub Pages - Adam C F Cox</title>
+    <meta charset="utf-8" />
+        
+</head>
+<body>
+    <div class="content">
+        <div class="container">
+            <div class="row topbar hidden-xs">
+                    <a href="http://www.adamcfcox.com/index.html">
+                        <div class="col-xs-12 col-sm-4 nav-btn "  style="border-bottom-left-radius:7px"  ><h4>GENERAL</h4></div>
+
+                    </a>
+                    <a href="http://www.adamcfcox.com/pages/posts.html">
+                        <div class="col-xs-12 col-sm-4 nav-btn "  ><h4>POSTS</h4></div>
+
+                    </a>
+                    <a href="http://www.adamcfcox.com/pages/projects.html">
+                        <div class="col-xs-12 col-sm-4 nav-btn "   style="border-bottom-right-radius:7px" ><h4>PROJECTS</h4></div>
+
+                    </a>
+            </div>
+            <div class="row topbar hidden-sm hidden-md hidden-lg">
+                    <a href="http://www.adamcfcox.com/index.html">
+                        <div class="col-xs-12 col-sm-4 nav-btn  "  style="border-top:solid 2px black" ><h4>GENERAL</h4></div>
+                    </a>
+                    <a href="http://www.adamcfcox.com/pages/posts.html">
+                        <div class="col-xs-12 col-sm-4 nav-btn  " ><h4>POSTS</h4></div>
+                    </a>
+                    <a href="http://www.adamcfcox.com/pages/projects.html">
+                        <div class="col-xs-12 col-sm-4 nav-btn   mobile-last " ><h4>PROJECTS</h4></div>
+                    </a>
+            </div>
+            <div class="row">
+               <div class="col-xs-12">
+    <meta name="description" content="In an effort to consolidate my non-business activities and save some money, I've just finished transferring this website from AWS EC2 to GitHub pages. I had built the site by hand, a small collection of html/php and css files, which is to say it was very simple and ..." />
+<div class="hp-header-inner">
+    <div>
+        <div id="title-block">
+            <h3>Moving to Pelican and GitHub Pages</h3>
+        </div>
+        <header class="header-article">
+            <div class="read-more">posted on September 09, 2016, by Adam</div>
+        </header>
+    </div>
+</div>
+                </div>
+            </div>
+            <div class="row">
+               <div class="col-xs-12">
+<div class="content-article">
+    <section class='article'>
+        <div class="entry-content">
+            <p>In an effort to consolidate my non-business activities and save some money, I've just finished transferring this website from AWS EC2 to GitHub pages. I had built the site by hand, a small collection of html/php and css files, which is to say it was very simple and didn't need an actual server. I'd recently become familiar with Pelican and GitHub pages, so this seemed like a natural solution. (I'd also taken a stab at using Pelican and AWS S3, which is how I ran my business website for a while, but after repeated issues with the windows S3 CLI, I've found the following setup to be easier to maintain.)</p>
+<p>The most time-consuming part of the process was creating this theme to mimic the original website's style, which I had spent a good deal of time on originally. Now that's all done, and I've set up two repositories as described in <a href="https://fedoramagazine.org/make-github-pages-blog-with-pelican/">this Fedora Magazine article</a>. One repo, <a href="https://github.com/mradamcox/mradamcox.github.io-src">mradamcox.github.io-src</a>, is the full pelican project, with the theme and settings, while the second, <a href="https://github.com/mradamcox/mradamcox.github.io">mradamcox.github.io</a>, is a sub-module inside the first, "posing" as the Pelican output folder. It works great, and is similar to how I've come to host my business site as well.</p>
+<p>Finally, I still wanted to use the original domain, www.adamcfcox.com. GitHub pages allows you to do this, by 1. saving a custom domain name in the mradamcox.github.io repo settings, and then 2. creating a CNAME record in the DNS that points back to mradamcox.github.io. Now when you go to <a href="http://mradamcox.github.io">http://mradamcox.github.io</a> or <a href="http://www.adamcfcox.com">http://www.adamcfcox.com</a>, you are ending up at the same static site, served directly from the mradamcox.github.io repo.</p>
+<p>All in all, I am now one step closer to being able to stop my only remaining personal EC2 instance. Transferring a GeoServer installation is the only task that remains...</p>
+        </div>
+    </section>
+    <footer class="footer-article">
+        <div class="tags-and-categories">Filed: <a href="http://www.adamcfcox.com/category/news.html">news</a>
+        | Tagged: <a href="http://www.adamcfcox.com/tag/announcements.html">announcements </a><a href="http://www.adamcfcox.com/tag/infrastructure.html">infrastructure </a><a href="http://www.adamcfcox.com/tag/aws.html">AWS </a>    </footer>
+</div>
+                </div>
+            </div>
+        <hr>
+            <div class="row" style="padding:15px 0px; margin-left:0px; margin-right:0px; max-width:none;">
+                <div class="col-sm-12">
+                    <p style="font-size:small">site last updated October 20, 2016 | powered by <a href="http://getpelican.com/">pelican</a> | unnamed theme</p>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var c1 = "mr.adamcox";
+        var c2 = "@";
+        var c3 = "gmail.com";
+        var email = c1+c2+c3
+        $(document).ready(function() {
+            document.getElementById('email-address').textContent = email;
+            document.getElementById('email-address').href = "mailto:"+email;
+        });
+    </script>
+</body>
+</html>
