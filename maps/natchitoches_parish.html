@@ -7,12 +7,12 @@
         <meta name="viewport" content="width=device-width">
         
         <!-- OpenLayers JS -->
-        <script src="http://openlayers.org/en/v3.0.0/build/ol.js" type="text/javascript"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ol3/3.5.0/ol.js" type="text/javascript"></script>
         <!-- JQuery JS -->
         <script src="http://code.jquery.com/jquery-latest.js"></script>
         
         <!-- OpenLayers CSS -->
-        <link rel="stylesheet" href="http://openlayers.org/en/v3.0.0/css/ol.css" type="text/css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ol3/3.5.0/ol.css" type="text/css">
         <!-- local CSS -->
         <link rel="stylesheet" href="http://www.adamcfcox.com/theme/css/main.css" type="text/css">
         <link rel="stylesheet" href="http://www.adamcfcox.com/theme/css/map.css" type="text/css">
@@ -40,7 +40,7 @@
                         <li id="rowhead"><b>OVERLAY</b></li>
                         <li><button id="plat" class="layer">historic plat maps</button></li>
                         <li><button id="road" class="layer">civil war road map</button></li>
-                        <li><button id="map174" class="layer">natchitoches 1866</button></li>
+                        <!-- <li><button id="map174" class="layer">natchitoches 1866</button></li> -->
                         <li><button id="confed" class="layer">confederate maps</button></li>
                         <li><button id="confedtrans" class="layer">conf. maps trans.</button></li>
                         <li><button id="none" class="layer"><em>none</em></button></li>
@@ -83,24 +83,19 @@
             </div>
         </div>
 
-        <!-- OpenLayers JS -->
-        <script src="http://openlayers.org/en/v3.0.0/build/ol.js" type="text/javascript"></script>
-        
-        <!-- JQuery JS -->
-        <script src="http://code.jquery.com/jquery-latest.js"></script>
-
         <!-- actual map code -->
         <script>
+        
+        var gswms_legion = 'https://db.legiongis.com/geoserver/wms/';
+        var tiles_legion = 'https://tiles.legiongis.com/';
         
         var plssref = new ol.layer.Tile({
             name: 'plssref',
             source: new ol.source.TileWMS({
-                url: 'http://crhim.canerivernha.org/geoserver/vect/wms/',
+                url: gswms_legion,
                 params: {
-                    'LAYERS': 'vect:PLSS_towns',
+                    'LAYERS': 'crnha:PLSS_towns',
                     'TILED': true,
-                    //'singleTile':true,
-                    //'ratio':5
                 },
                 serverType: 'geoserver'   
             })
@@ -109,12 +104,10 @@
         var privland = new ol.layer.Tile({
             name: 'privland',
             source: new ol.source.TileWMS({
-                url: 'http://crhim.canerivernha.org/geoserver/wms/',
+                url: gswms_legion,
                 params: {
-                    'LAYERS': 'vect:kisatchie_private_land',
+                    'LAYERS': 'crnha:fedland_ownership',
                     'TILED': true,
-                    //'singleTile':true,
-                    //'ratio':5
                 },
                 serverType: 'geoserver'   
             })
@@ -148,28 +141,28 @@
         var usgs = new ol.layer.Tile({
             name: 'usgs',
             source: new ol.source.XYZ({
-                url: 'http://crhim.canerivernha.org/tiles/drg/{z}/{x}/{y}.png'
+                url: tiles_legion + 'drg/{z}/{x}/{y}.png',
             })
         });
         
         var civilwarroadmap = new ol.layer.Tile({
             name: 'road',
             source: new ol.source.XYZ({               
-                url: 'http://crhim.canerivernha.org/tiles/civilwarroadmap/{z}/{x}/{y}.png'
+                url: tiles_legion + 'civilwarroadmap/{z}/{x}/{y}.png'
             })
         });
         
         var relief = new ol.layer.Tile({
             name: 'relief',
             source: new ol.source.XYZ({
-                url: 'http://crhim.canerivernha.org/tiles/hillshade/{z}/{x}/{y}.png'
+                url: tiles_legion + 'hillshade/{z}/{x}/{y}.png'
             }),
         });
         
         var elev = new ol.layer.Tile({
             name: 'elev',
             source: new ol.source.XYZ({
-                url: 'http://crhim.canerivernha.org/tiles/relief_basemap/{z}/{x}/{y}.png'
+                url: tiles_legion + 'relief_basemap/{z}/{x}/{y}.png',
             }),
             opacity: .95
         });
@@ -177,47 +170,34 @@
         var confed_full = new ol.layer.Tile({
             name: 'confed_full',
             source: new ol.source.TileWMS({
-                url: 'http://crhim.canerivernha.org/geoserver/wms/',
+                url: gswms_legion,
                 params: {
-                    'LAYERS': 'confed_maps:confed_full',
+                    'LAYERS': 'crnha:confedmaps_full',
                     'TILED': true,
                     },
-                serverType: 'geoserver'   
+                serverType: 'geoserver'
             })
         });
         
         var confed_trans = new ol.layer.Tile({
-            name: 'confed_full',
+            name: 'confed_trans',
             source: new ol.source.TileWMS({
-                url: 'http://crhim.canerivernha.org/geoserver/wms/',
+                url: gswms_legion,
                 params: {
-                    'LAYERS': 'confed_maps:confed_trans',
+                    'LAYERS': 'crnha:confedmaps_trans',
                     'TILED': true,
                     },
-                serverType: 'geoserver'   
+                serverType: 'geoserver'
             })
         });
 
         var platmaps = new ol.layer.Tile({
             name: 'platmaps',
             source: new ol.source.XYZ({
-                url: 'http://crhim.canerivernha.org/tiles/platmaps_trans/{z}/{x}/{y}.png'
+                url: tiles_legion + 'historictownplats/{z}/{x}/{y}.png'
             })
         });
-        
-        // not in use, prefer to use tiles
-        var platmaps_wms = new ol.layer.Tile({
-            name: 'platmaps',
-            source: new ol.source.TileWMS({
-                url: 'http://54.148.201.140:8080/geoserver/raster/wms/',
-                params: {
-                    'LAYERS': 'raster:townplats_trans',
-                    'TILED': true,
-                    },
-                serverType: 'geoserver'   
-            })
-        });
-        
+
         var map174 = new ol.layer.Tile({
             name: 'map174',
             source: new ol.source.TileWMS({
