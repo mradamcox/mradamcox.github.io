@@ -5,9 +5,15 @@ from datetime import date
 
 AUTHOR = u'Adam Cox'
 SITENAME = u'Adam C F Cox'
-SITEURL = r'http://www.adamcfcox.com'
+SITEURL = r'https://mradamcox.github.io'
 
 PATH = 'content'
+
+STATIC_PATHS = [
+    'maps',
+]
+
+READERS = {"html": None}
 
 TIMEZONE = 'America/Chicago'
 
