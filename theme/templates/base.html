@@ -5,18 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="{{SITEURL}}/theme/css/plugins/bootstrap.min.css">
+    <link rel="stylesheet" href="/theme/css/plugins/bootstrap.min.css">
 
     <!-- jQuery library -->
-    <script src="{{SITEURL}}/theme/js/plugins/jquery.min.js"></script>
+    <script src="/theme/js/plugins/jquery.min.js"></script>
 
     <!-- Latest compiled JavaScript -->
-    <script src="{{SITEURL}}/theme/js/plugins/bootstrap.min.js"></script>
+    <script src="/theme/js/plugins/bootstrap.min.js"></script>
     
     <!-- webstie css -->
-    <link rel="stylesheet" href="{{SITEURL}}/theme/css/main.css">
-    <link rel="stylesheet" href="{{SITEURL}}/theme/css/panel.css">
-    <link rel="stylesheet" href="{{SITEURL}}/theme/css/map.css">
+    <link rel="stylesheet" href="/theme/css/main.css">
+    <link rel="stylesheet" href="/theme/css/panel.css">
+    <link rel="stylesheet" href="/theme/css/map.css">
     
     <!--  ADD GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Carter+One|Lato|Pacifico" rel="stylesheet">
@@ -57,7 +57,7 @@
         <div class="container">
             <div class="row topbar hidden-xs">
                 {% for p in pages|sort(attribute='sortorder') %}
-                    <a href="{{SITEURL}}/{{ p.url }}">
+                    <a href="/{{ p.url }}">
                         <div class="col-xs-12 col-sm-4 nav-btn {% if p == page %} active {% endif %}" {% if loop.first %} style="border-bottom-left-radius:7px" {% endif %} {% if loop.last %} style="border-bottom-right-radius:7px" {% endif %}><h4>{{ p.title }}</h4></div>
 
                     </a>
@@ -65,7 +65,7 @@
             </div>
             <div class="row topbar hidden-sm hidden-md hidden-lg">
                 {% for p in pages|sort(attribute='sortorder') %}
-                    <a href="{{SITEURL}}/{{ p.url }}">
+                    <a href="/{{ p.url }}">
                         <div class="col-xs-12 col-sm-4 nav-btn {% if p == page %} active {% endif %} {% if loop.last %} mobile-last {% endif %}" {% if loop.first %} style="border-top:solid 2px black" {% endif %}><h4>{{ p.title }}</h4></div>
                     </a>
                 {% endfor %}
