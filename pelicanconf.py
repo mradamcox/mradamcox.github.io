@@ -11,6 +11,7 @@ PATH = 'content'
 
 STATIC_PATHS = [
     'maps',
+    'geog4046',
 ]
 
 READERS = {"html": None}
