@@ -3,19 +3,15 @@
 <html land="en">
     <head>
         <title>natchitoches parish</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width">
+        <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
         
         <!-- OpenLayers JS -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ol3/3.5.0/ol.js" type="text/javascript"></script>
         <!-- JQuery JS -->
-        <script src="http://code.jquery.com/jquery-latest.js"></script>
         
-        <!-- OpenLayers CSS -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ol3/3.5.0/ol.css" type="text/css">
         <!-- local CSS -->
-        <link rel="stylesheet" href="http://www.adamcfcox.com/theme/css/main.css" type="text/css">
-        <link rel="stylesheet" href="http://www.adamcfcox.com/theme/css/map.css" type="text/css">
+        <link rel="stylesheet" href="/theme/css/main.css" type="text/css">
+        <link rel="stylesheet" href="/theme/css/map.css" type="text/css">
         
     </head>
     <body>
@@ -82,6 +78,11 @@
                 <p id="elevationreliefnote" class="map-note"><b>elevation + relief:</b> This layer is a combination of hillshade and elevation data derived from LiDAR data acquired through <a href="http://atlas.lsu.edu">Atlas</a>, the Louisiana statewide GIS.  The data was produced for the <a href="http://atlas.lsu.edu/central/la_lidar_project.pdf" target="_blank">Louisiana State LiDAR Project</a>.  The original tiles were combined and clipped in ArcMap and new tiles were generated in <a href="https://www.mapbox.com/tilemill/" target="_blank">TileMill</a>.</p>                        
             </div>
         </div>
+        
+        <script src="https://code.jquery.com/jquery-latest.js"></script>
+        
+        <!-- OpenLayers CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ol3/3.5.0/ol.css" type="text/css">
 
         <!-- actual map code -->
         <script>
