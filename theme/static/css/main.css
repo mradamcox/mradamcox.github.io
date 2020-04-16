@@ -118,13 +118,14 @@ p {
     background-color: #BACAC5;
 }
 
-a:link {
+a, a:link {
     color: #364DC9
 }
 
-a:visited {
-    color: #551A8B
+a:hover {
+    color: #CF5734
 }
+
 hr {
     border-top: dashed 1px #9caba1;
     margin-top: 10px;
