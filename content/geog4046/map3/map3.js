@@ -9,6 +9,10 @@ var styles = function (feature) {
     color = "grey";
   } else if (owner.indexOf("LLC") !== -1) {
     color = "green";
+  } else if (owner.indexOf("L.L.C.") !== -1) {
+    color = "green";
+  } else if (owner.indexOf("L,L,C.") !== -1) {
+    color = "green";
   } else if (owner.indexOf("CORP") !== -1) {
     color = "purple";
   } else if (owner.indexOf("INC") !== -1) {
