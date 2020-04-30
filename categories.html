@@ -17,12 +17,7 @@
     <link rel="stylesheet" href="/theme/css/main.css">
     <link rel="stylesheet" href="/theme/css/panel.css">
     <link rel="stylesheet" href="/theme/css/map.css">
-    
-    <!--  ADD GOOGLE FONTS -->
-    <link href="https://fonts.googleapis.com/css?family=Carter+One|Lato|Pacifico" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">
-    
-    
+
     <title>Adam C F Cox - Categories </title>
     <meta charset="utf-8" />
         
@@ -67,9 +62,16 @@
                 </div>
             </div>
             <hr>
-<div class="row footer-row">
+<div class="row footer">
     <div class="col-sm-12">
-        <p style="font-size:small"><a href="https://github.com/mradamcox">github</a> ~ <a href="https://observablehq.com/@mradamcox">observable</a> ~ <a href="https://www.twitter.com/mradamcox">twitter</a> ~ <a href="https://www.linkedin.com/in/mradamcox">linkedin</a> | updated April 30, 2020 | site powered by <a href="http://getpelican.com/">pelican</a></p>
+        <p>
+            <a href="https://github.com/mradamcox"><img src="/theme/img/github.png"></a>
+            <a href="https://observablehq.com/@mradamcox"><img src="/theme/img/observablehq.png"></a>
+            <a href="https://www.twitter.com/mradamcox"><img src="/theme/img/twitter.png"></a>
+            <a href="https://www.linkedin.com/in/mradamcox"><img src="/theme/img/li.png"></a>
+            <a class="email-address"><img src="/theme/img/email.png"></a>
+        </p>
+        <p style="font-size:small">last updated April 30, 2020 | site powered by <a href="http://getpelican.com/">pelican</a></p>
     </div>
 </div>            </div>
         </div>
@@ -80,8 +82,9 @@
         var c3 = "gmail.com";
         var email = c1+c2+c3
         $(document).ready(function() {
-            document.getElementById('email-address').textContent = email;
-            document.getElementById('email-address').href = "mailto:"+email;
+            $('.email-address-txt').html(email);
+            $('.email-address-txt').attr("href", "mailto:"+email);
+            $('.email-address').attr("href", "mailto:"+email);
         });
     </script>
 </body>
