@@ -6,7 +6,7 @@ template: page
 
 ###<center>Adam C F Cox</center>
 
-#####<center><a id="email-address"></a> | 608-606-9928</center>
+#####<center><a class="email-address-txt"></a> | 608-606-9928</center>
 
 #### Education
 

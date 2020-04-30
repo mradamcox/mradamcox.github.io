@@ -95,8 +95,9 @@
         var c3 = "gmail.com";
         var email = c1+c2+c3
         $(document).ready(function() {
-            document.getElementById('email-address').textContent = email;
-            document.getElementById('email-address').href = "mailto:"+email;
+            $('.email-address-txt').html(email);
+            $('.email-address-txt').attr("href", "mailto:"+email);
+            $('.email-address').attr("href", "mailto:"+email);
         });
     </script>
 </body>

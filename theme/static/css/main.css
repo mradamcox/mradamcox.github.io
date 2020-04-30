@@ -146,6 +146,12 @@ hr {
     margin-top: 15px;
 }
 
-.footer-row {
+.footer {
     text-align: center;
+}
+
+.footer img {
+    height: 22px;
+    margin-right: 10px;
+    margin-left: 10px;
 }
