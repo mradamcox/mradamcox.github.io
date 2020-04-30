@@ -23,9 +23,7 @@ p {
 
 .container {
     max-width: 875px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 0px;
+    margin: 0px auto 25px auto;
     padding-top:0px;
     background-color: #F8F7BF;
     border-bottom-left-radius: 7px;
@@ -146,4 +144,8 @@ hr {
 
 .content-article {
     margin-top: 15px;
+}
+
+.footer-row {
+    text-align: center;
 }
