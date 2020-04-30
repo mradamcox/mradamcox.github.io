@@ -84,11 +84,7 @@
             </div>
             <hr>
             {% block footer %}
-            <div class="row footer-row">
-                <div class="col-sm-12">
-                    <p style="font-size:small"><a href="https://github.com/mradamcox">github</a> ~ <a href="https://observablehq.com/@mradamcox">observable</a> ~ <a href="https://www.twitter.com/mradamcox">twitter</a> ~ <a href="https://www.linkedin.com/in/mradamcox">linkedin</a> | updated {{PUBLISH_DATE}} | site powered by <a href="http://getpelican.com/">pelican</a></p>
-                </div>
-            </div>
+            {% include 'credits.html' %}
             {% endblock %}
             </div>
         </div>
