@@ -191,7 +191,7 @@ var buildingData;
 $.ajax({
   url: "buildings.geojson",
   success: function(data) {
-    buildingData = data;
+    buildingData = $.parseJSON(data);
   }
 });
 
