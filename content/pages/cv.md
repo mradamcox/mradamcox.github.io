@@ -1,12 +1,9 @@
-Title: Adam C F Cox
+Title: CV
 status: hidden
 template: page
-
-##### <div style="text-align:right"><a href="/theme/files/AdamCox-CV-Nov2019.pdf">pdf version</a></div>
-
 ###<center>Adam C F Cox</center>
 
-#####<center><a class="email-address-txt"></a> | 608-606-9928</center>
+#####<center><a class="email-address-txt"></a> | 608-606-9928 | <a href="/theme/files/AdamCox-CV-Nov2019.pdf">as pdf</a></center>
 
 #### Education
 
