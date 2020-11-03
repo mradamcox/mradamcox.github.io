@@ -10,9 +10,14 @@ SITEURL = r'https://mradamcox.github.io'
 PATH = 'content'
 
 STATIC_PATHS = [
+    'extra',
     'maps',
     'geog4046',
 ]
+
+EXTRA_PATH_METADATA = {
+    'extra/favicon.ico': {'path': 'favicon.ico'},
+}
 
 READERS = {"html": None}
 
@@ -29,7 +34,7 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
-PUBLISH_DATE = date.today().strftime("%B %d, %Y")
+PUBLISH_DATE = date.today().strftime("%B %-d, %Y")
 DEFAULT_DATE_FORMAT = ("%B %d, %Y")
 
 # Blogroll
