@@ -1,6 +1,6 @@
 Title: GENERAL
 sortorder: 1
-template: index
+template: page
 save_as: index.html
 url: index.html
 
