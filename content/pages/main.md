@@ -1,4 +1,4 @@
-Title: GENERAL
+Title: ABOUT
 sortorder: 1
 template: page
 save_as: index.html
@@ -8,7 +8,7 @@ url: index.html
 
 I'm a GIS specialist/developer, and often cartographer. This site serves as a general portfolio and repository for my GIS and web-work that is not related to my real company, Legion GIS, LLC. Please check out the Legion website, [legiongis.com](http://legiongis.com), to get in contact with me for professional GIS services.
 
-You can find my CV [here](pages/adam-c-f-cox.html).
+You can find my CV [here](pages/cv.html).
 
 Thanks for looking, and feel free to get in touch.
 
