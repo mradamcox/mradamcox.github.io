@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 from datetime import date
 
 AUTHOR = u'Adam Cox'
-SITENAME = u'Adam C F Cox'
+SITENAME = u'Adam Cox'
 SITEURL = r'https://mradamcox.github.io'
 
 PATH = 'content'

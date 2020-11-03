@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="/theme/css/plugins/bootstrap.min.css">
 
@@ -12,7 +12,7 @@
 
     <!-- Latest compiled JavaScript -->
     <script src="/theme/js/plugins/bootstrap.min.js"></script>
-    
+
     <!-- webstie css -->
     <link rel="stylesheet" href="/theme/css/main.css">
     <link rel="stylesheet" href="/theme/css/panel.css">
@@ -45,7 +45,7 @@
     {% if TAG_FEED_RSS and tag %}
     <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_RSS|format(tag.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Tags RSS Feed" />
     {% endif %}
-    {% endblock head %}        
+    {% endblock head %}
 </head>
 <body>
     <div class="content">
