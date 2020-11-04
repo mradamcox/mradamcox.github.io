@@ -1,22 +1,19 @@
-
-
 <!DOCTYPE html>
 <html land="en">
     <head>
         <title>Vernon County</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
-        
-        <!-- OpenLayers JS -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/ol3/3.5.0/ol.js" type="text/javascript"></script>
-        <!-- JQuery JS -->
-        <script src="https://code.jquery.com/jquery-latest.js"></script>
-        
-        <!-- OpenLayers CSS -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ol3/3.5.0/ol.css" type="text/css">
+
+        <!-- OpenLayers -->
+        <script src="/theme/plugins/ol/3.5.0/ol.js"></script>
+        <link rel="stylesheet" href="/theme/plugins/ol/3.5.0/ol.css" type="text/css">
+
+        <!-- jquery -->
+        <script src="/theme/plugins/jquery/jquery.min.js"></script>
+
         <!-- local CSS -->
         <link rel="stylesheet" href="/theme/css/main.css">
-        <link rel="stylesheet" href="/theme/css/panel.css">
         <link rel="stylesheet" href="/theme/css/map.css">
 
     </head>
@@ -45,24 +42,24 @@
                     </ul>
                 </div>
             </div>
-                
-            
+
+
             <div id="map" class="map"></div>
-            
+
             <div class="info-box" id="layer-info" style="display:none; margin-top:-115px"></div>
             <div class="info-box" id="accuracy-box" style="display:none">
                 <em>The process of placing historic maps on current maps ("georeferencing") is done by matching points on the historic map to corresponding points on a current basemap.  It is not an exact process.  One can see above how the historical documents fit well in some places, and badly in others.  This is to say that the historic maps are best considered as showing features in their current day </em>vicinity<em>, not their exact location.</em>
             </div>
-            
+
             <div id="footbar">
 
                 <b>layer info</b> <button id="toggleinfo" class="lite">show</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>accuracy note</b> <button id="togglenote" class="lite">show</button>
-               
+
 			</div>
         </div>
 
         <script>
-        
+
         // BASEMAP LAYERS
         var osm_attr = new ol.Attribution({
             html: '&copy; <a href="http://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors.'
@@ -78,7 +75,7 @@
                 })
             })
         };
-        
+
         var imagery2 = {
             id: "imagery",
             layer: new ol.layer.Tile({
@@ -89,7 +86,7 @@
                 })
             })
         };
-        
+
         var imagery = {
             id: "imagery",
             layer:  new ol.layer.Tile({
@@ -104,10 +101,10 @@
             //    }),
             //    extent: [-10548293.782819713, 3491322.48132465, -9277237.966125775, 4199470.940998869],
             //}),
-            
-            
-            
-            
+
+
+
+
             //new ol.layer.Tile({
             //    name: 'relief',
             //    source: new ol.source.TileWMS({
@@ -119,9 +116,9 @@
             //    }),
             //})
         };
-        
-        
-        
+
+
+
         var ortho_labels = new ol.layer.Group({
             style: 'AerialWithLabels',
             layers: [
@@ -137,7 +134,7 @@
                 })
             ]
         });
-        
+
         var hybrid = {
             id: "hybrid",
             layer: ortho_labels,
@@ -153,9 +150,9 @@
                 })
             })
         };
-        
+
         // OVERLAYS
-        
+
         var geologic = {
             id: "geologic",
             info: "Lithology. <a href='http://mrdata.usgs.gov/catalog/lithclass-color.php' target='_blank'>full legend</a>.<br><b>Dark Blue</b> Op: Prairie du Chien Group (Ordovician) - Dolomite with some sandstone and shale; includes Shakopee and Oneota Formations. <a href='http://mrdata.usgs.gov/geology/state/sgmc-unit.php?unit=WIOp;0' target='_blank'>detailed description</a>.<br><b>Light Blue</b> Cu: Cambrian, undivided (Cambrian) - Sandstone with some dolomite and shale, undivided; includes Trempealeau, Tunnel City, and Elk Mound Formations. <a href='http://mrdata.usgs.gov/geology/state/sgmc-unit.php?unit=WICAu;0' target='_blank'>detailed description</a>.",
@@ -171,7 +168,7 @@
                 }),
             })
         };
-        
+
         var coe = {
             id: "coe",
             info: "Map for Kickapoo Valley Flood Control Project, 1967. Army Corps of Engineers. original source <a href='http://www.vernoncounty.org/GIS/Directory/1967COEMapsKickapooValleyFloodControlProject/' target='_blank'>here</a>.",
@@ -182,8 +179,8 @@
                 })
             })
         };
-        
-        
+
+
         // EMPTY LAYER
         var blank = {
             id: "blank",
@@ -193,16 +190,16 @@
                 })
             })
         };
-        
+
         var basemaps = [osm,relief,blank];
         var overlays = [geologic,coe,blank];
-        
+
         var collection = new ol.Collection([osm.layer,blank.layer]);
         $('#osm').addClass('selected');
         $('#blank').addClass('selected');
-        
+
         var info_shown = false
-        
+
         var controls = [
             new ol.control.MousePosition({
                 undefinedHTML: '<b>n/a</b>',
@@ -219,7 +216,7 @@
                 tipLabel: 'layer attributions',
             })
         ];
-        
+
         var map = new ol.Map({
             target: 'map',
             renderer: 'canvas',
@@ -233,7 +230,7 @@
             }),
             minZoomLevel: 7,
         });
-        
+
         function selectBasemap() {
             $('.bm').on('click', function() {
                 $('.bm').removeClass('selected');
@@ -242,14 +239,14 @@
                     var basemap = basemaps[i]
                     if (basemap.id === $(this).attr('id')) {
                         collection.setAt(0, basemap.layer);
-                        
+
                         break;
                     }
                 }
                 map.setLayerGroup = new ol.layer.Group(collection);
             });
         };
-        
+
         function selectOverlay() {
             $('.hm').on('click', function() {
                 $('.hm').removeClass('selected');
@@ -258,7 +255,7 @@
                     var overlay = overlays[i]
                     if (overlay.id === $(this).attr('id')) {
                         collection.setAt(1, overlay.layer);
-                        
+
                         document.getElementById('layer-info').innerHTML = overlay.info
                         break;
                     }
@@ -266,7 +263,7 @@
                 map.setLayerGroup = new ol.layer.Group(collection);
             });
         };
-        
+
         function tempRemoveOverlay() {
             var current_overlay = collection.getArray()[1];
             $('#temp-remove').on('mousedown', function() {
@@ -293,7 +290,7 @@
                 }
             });
         };
-        
+
         function toggleNote() {
             $("#togglenote").click(function(){
                 if ($("#accuracy-box").is(":hidden")) {
@@ -305,18 +302,18 @@
                 }
             });
         };
-        
+
         $(document).ready(function() {
             document.getElementById('layer-info').innerHTML = blank.info
             toggleInfo();
             toggleNote();
-            
+
             selectBasemap();
             selectOverlay();
             tempRemoveOverlay();
-           
-        }); 
-        
-        </script>        
+
+        });
+
+        </script>
     </body>
 </html>
