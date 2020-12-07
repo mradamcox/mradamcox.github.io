@@ -133,6 +133,7 @@
         };
 
         // HISTORIC MAP LAYERS
+        var afrh_gs_wms = 'https://afrh-iris.com/geoserver/historicmaps/wms/';
 
         var hm1850 = {
             id: "1850",
@@ -140,7 +141,7 @@
             layer: new ol.layer.Tile({
                 name: '1850',
                 source: new ol.source.TileWMS({
-                    url: 'http://52.27.146.197/geoserver/historicmaps/wms/',
+                    url: afrh_gs_wms,
                     params: {
                         'LAYERS':'1850_George_Riggs',
                         'TILED':true,
@@ -156,7 +157,7 @@
             layer: new ol.layer.Tile({
                 name: '1865',
                 source: new ol.source.TileWMS({
-                    url: 'http://52.27.146.197/geoserver/historicmaps/wms/',
+                    url: afrh_gs_wms,
                     params: {
                         'LAYERS':'1865_Barnard',
                         'TILED':true,
@@ -172,7 +173,7 @@
             layer: new ol.layer.Tile({
                 name: '1866',
                 source: new ol.source.TileWMS({
-                    url: 'http://52.27.146.197/geoserver/historicmaps/wms/',
+                    url: afrh_gs_wms,
                     params: {
                         'LAYERS':'1866-67_Michler_Memory',
                         'TILED':true,
@@ -188,7 +189,7 @@
             layer: new ol.layer.Tile({
                 name: '1873',
                 source: new ol.source.TileWMS({
-                    url: 'http://52.27.146.197/geoserver/historicmaps/wms/',
+                    url: afrh_gs_wms,
                     params: {
                         'LAYERS':'1873_Bootes',
                         'TILED':true,
@@ -204,7 +205,7 @@
             layer: new ol.layer.Tile({
                 name: '1877',
                 source: new ol.source.TileWMS({
-                    url: 'http://52.27.146.197/geoserver/historicmaps/wms/',
+                    url: afrh_gs_wms,
                     params: {
                         'LAYERS':'1877_JC_Entwhistle',
                         'TILED':true,
@@ -220,7 +221,7 @@
             layer: new ol.layer.Tile({
                 name: '1892',
                 source: new ol.source.TileWMS({
-                    url: 'http://52.27.146.197/geoserver/historicmaps/wms/',
+                    url: afrh_gs_wms,
                     params: {
                         'LAYERS':'1892_USGS',
                         'TILED':true,
@@ -236,7 +237,7 @@
             layer: new ol.layer.Tile({
                 name: '1903',
                 source: new ol.source.TileWMS({
-                    url: 'http://52.27.146.197/geoserver/historicmaps/wms/',
+                    url: afrh_gs_wms,
                     params: {
                         'LAYERS':'1903_ACoE',
                         'TILED':true,
@@ -252,7 +253,7 @@
             layer: new ol.layer.Tile({
                 name: '1914',
                 source: new ol.source.TileWMS({
-                    url: 'http://52.27.146.197/geoserver/historicmaps/wms/',
+                    url: afrh_gs_wms,
                     params: {
                         'LAYERS':'1914_Topo',
                         'TILED':true,
@@ -268,7 +269,7 @@
             layer: new ol.layer.Tile({
                 name: '1944',
                 source: new ol.source.TileWMS({
-                    url: 'http://52.27.146.197/geoserver/historicmaps/wms/',
+                    url: afrh_gs_wms,
                     params: {
                         'LAYERS':'1944_Topo',
                         'TILED':true,
@@ -284,7 +285,7 @@
             layer: new ol.layer.Tile({
                 name: '1953',
                 source: new ol.source.TileWMS({
-                    url: 'http://52.27.146.197/geoserver/historicmaps/wms/',
+                    url: afrh_gs_wms,
                     params: {
                         'LAYERS':'1953_Master_Plan',
                         'TILED':true,
@@ -300,7 +301,7 @@
             layer: new ol.layer.Tile({
                 name: '1967',
                 source: new ol.source.TileWMS({
-                    url: 'http://52.27.146.197/geoserver/historicmaps/wms/',
+                    url: afrh_gs_wms,
                     params: {
                         'LAYERS':'1967_Topo',
                         'TILED':true,
@@ -316,7 +317,7 @@
             layer: new ol.layer.Tile({
                 name: '19575',
                 source: new ol.source.TileWMS({
-                    url: 'http://52.27.146.197/geoserver/historicmaps/wms/',
+                    url: afrh_gs_wms,
                     params: {
                         'LAYERS':'1975_Schedule_of_Structures',
                         'TILED':true,
