@@ -36,7 +36,6 @@
                     <ul id="overlist" class="bar">
                         <li id="rowhead"><b>OVERLAY</b></li>
                         <li><button id="coe" class="layer hm">KVR Corps of Engineers</button></li>
-                        <li><button id="geologic" class="layer hm">WI Geologic Map</button></li>
                         <li><button id="blank" class="layer hm"><em>none</em></button></li>
                         <li><button id="temp-remove" class="layer"><em>-/+</em></button></li>
                     </ul>
@@ -153,22 +152,6 @@
 
         // OVERLAYS
 
-        var geologic = {
-            id: "geologic",
-            info: "Lithology. <a href='http://mrdata.usgs.gov/catalog/lithclass-color.php' target='_blank'>full legend</a>.<br><b>Dark Blue</b> Op: Prairie du Chien Group (Ordovician) - Dolomite with some sandstone and shale; includes Shakopee and Oneota Formations. <a href='http://mrdata.usgs.gov/geology/state/sgmc-unit.php?unit=WIOp;0' target='_blank'>detailed description</a>.<br><b>Light Blue</b> Cu: Cambrian, undivided (Cambrian) - Sandstone with some dolomite and shale, undivided; includes Trempealeau, Tunnel City, and Elk Mound Formations. <a href='http://mrdata.usgs.gov/geology/state/sgmc-unit.php?unit=WICAu;0' target='_blank'>detailed description</a>.",
-            layer: new ol.layer.Tile({
-                name: 'geologic',
-                opacity: .65,
-                source: new ol.source.TileWMS({
-                    url: 'http://mrdata.usgs.gov/services/wi?',
-                    params: {
-                        'LAYERS':'lith-high',
-                        'TILED':true,
-                    },
-                }),
-            })
-        };
-
         var coe = {
             id: "coe",
             info: "Map for Kickapoo Valley Flood Control Project, 1967. Army Corps of Engineers. original source <a href='http://www.vernoncounty.org/GIS/Directory/1967COEMapsKickapooValleyFloodControlProject/' target='_blank'>here</a>.",
@@ -194,9 +177,9 @@
         var basemaps = [osm,relief,blank];
         var overlays = [geologic,coe,blank];
 
-        var collection = new ol.Collection([osm.layer,blank.layer]);
+        var collection = new ol.Collection([osm.layer,coe.layer]);
         $('#osm').addClass('selected');
-        $('#blank').addClass('selected');
+        $('#coe').addClass('selected');
 
         var info_shown = false
 
@@ -223,10 +206,10 @@
             layers: collection,
             controls: controls,
             view: new ol.View({
-                center: ol.proj.transform([-90.627068, 43.595931], 'EPSG:4326', 'EPSG:3857'),
+                center: [-10086227.732484678, 5408855.804286924 ],
                 minZoom: 9,
                 maxZoom: 19,
-                zoom: 11,
+                zoom: 12,
             }),
             minZoomLevel: 7,
         });
