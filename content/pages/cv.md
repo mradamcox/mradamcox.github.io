@@ -3,7 +3,7 @@ status: hidden
 template: page
 ###<center>Adam C F Cox</center>
 
-#####<center><a class="email-address-txt"></a> | 608-606-9928 | <a href="/theme/files/AdamCox-CV-Nov2019.pdf">as pdf</a></center>
+#####<center><a class="email-address-txt"></a> | 608-606-9928 | <a href="/theme/files/AdamCox-CV-Dec2020.pdf">as pdf</a></center>
 
 #### Education
 
@@ -71,8 +71,10 @@ template: page
 
 #### Conference Presentations
 
+* **Cox, A.**, 2020: Extending GeoNode to Support Historical Map Georeferencing. Presentation for GeoNode Summit 2020, Virtual Conference, Dec 7-9.
+* **Cox, A.**, 2020: QGIS and GIMP for Enhancing Historical Maps. Presentation for QGIS North America, Virtual Conference, July 17th, 24th, 31st.
 * Ringhoff, M., Ausloos, J., and **Cox, A.**, 2019: Designing an Arches Database. Paper presented at 2019 California Preservation Conference, Palm Springs, California, May 8-11.
-* **Cox, A.** 2017: Two Arches Implementation Case Studies. Paper presented at 2017 CIPA Symposium: Digital Workflows for Heritage Conservation, Ottawa, Canada, August 29-September 1.
+* **Cox, A.**, 2017: Two Arches Implementation Case Studies. Paper presented at 2017 CIPA Symposium: Digital Workflows for Heritage Conservation, Ottawa, Canada, August 29-September 1.
 * Barton, C. and **Cox, A.**, 2016: Using the Arches Open Source Web Application as a Cultural Resources Management Tool. Paper presented at Association for Preservation Technology International Conference, San Antonio, Texas, October 30 – November 2.
 * Dalgity, A., Myers, D. and **Cox, A.**, 2016: Technologies and Approaches for Rapid Surveys. Paper presented at National Alliance of Preservation Commissions Forum, Mobile, Alabama, July 27-31.
 * **Cox, A.**, 2016: Arches: A New Open Source GeoInventory Platform. Paper presented at 29th Annual Wisconsin Land Information Association Conference, Elkhart Lake, Wisconsin, February 10-12.
@@ -80,6 +82,9 @@ template: page
 
 #### Conference Attendance
 
+* GeoNode Summit, Virtual Meeting (December 2020)
+* NACIS Annual Meeting, Virtual Meeting (October 2020)
+* QGIS North America Annual Meeting, Virtual Meeting (July 2020)
 * QGIS Southeast Regional User Meeting, Chattanooga, Tennessee (October 2019)
 * Association of American Geographers Annual Meeting, Washington D.C. (April 2019)
 * Association of American Geographers Annual Meeting, New Orleans, Louisiana (April 2018)
@@ -94,6 +99,7 @@ template: page
 
 #### Workshop Attendance
 
+* Developing with GeoNode (2 sessions), GeoNode Summit, Virtual Meeting (December 2020)
 * Arches Community Workshop, 3-day workshop, London, UK (July 2014)
 * Section 106: An Introduction, 3-day course, Madison, Wisconsin (November 2011)
 
