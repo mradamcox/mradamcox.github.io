@@ -75,48 +75,19 @@
             })
         };
 
-        var imagery2 = {
-            id: "imagery",
-            layer: new ol.layer.Tile({
-                name: 'imagery',
-                preload: Infinity,
-                source: new ol.source.MapQuest({
-                    layer: 'sat'
-                })
-            })
+        // for some reason can't get this to work.
+        var mapbox_api_key = "pk.eyJ1IjoibGVnaW9uZ2lzIiwiYSI6ImNrbXV4dDgxazAwN2Uyb3BmOG41Z3QxZmgifQ.2GoavKeggS1oqRR6H_EgHg";
+        var mapbox_aerial = {
+          id: "mapbox",
+          layer: new ol.layer.Tile({
+              name: 'mapbox',
+              type: 'base',
+              source: new ol.source.XYZ({
+                  url: 'https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/256/{z}/{x}/{y}?access_token='+mapbox_api_key,
+                  attributions: ["&copy; Mapbox"]
+              })
+          })
         };
-
-        var imagery = {
-            id: "imagery",
-            layer:  new ol.layer.Tile({
-                preload: Infinity,
-                source: new ol.source.TileArcGISRest({
-                    url: 'https://basemap.nationalmap.gov/arcgis/services/USGSImageryOnly/MapServer',
-                }),
-                //extent: [-10548293.782819713, 3491322.48132465, -9277237.966125775, 4199470.940998869],
-            }),
-            //    source: new ol.source.XYZ({
-            //        url: 'http://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/tile/{z}/{x}/{y}',
-            //    }),
-            //    extent: [-10548293.782819713, 3491322.48132465, -9277237.966125775, 4199470.940998869],
-            //}),
-
-
-
-
-            //new ol.layer.Tile({
-            //    name: 'relief',
-            //    source: new ol.source.TileWMS({
-            //        url: 'http://gis.apfo.usda.gov/arcgis/services/NAIP/Wisconsin_2015_1m/ImageServer/WMSServer?request=GetMap&service=WMS',
-                    //params: {
-                        //'LAYERS':'vc_relief',
-                    //    'TILED':true,
-                    //},
-            //    }),
-            //})
-        };
-
-
 
         var ortho_labels = new ol.layer.Group({
             style: 'AerialWithLabels',
