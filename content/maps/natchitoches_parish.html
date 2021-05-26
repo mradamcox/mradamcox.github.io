@@ -46,14 +46,15 @@
                         <li><button id="zoomover" class="zoom"><em>ZOOM</em></button></li>
                     </ul>
                 </div>
-
+                <!-- remove reference layers, not that interesting, no longer hosted -->
+                <!--
                 <div>
                     <ul id="reflist" class="bar">
                         <li id="rowhead"><b>REFERENCE</b></li>
                         <li><button id="plssref" class="layer">plss</button></li>
                         <li class="last"><button id="privateland" class="layer">private land in USFS</button></li>
                     </ul>
-                </div>
+                </div> -->
             </div>
 
             <div id="map" class="map"></div>
@@ -92,30 +93,30 @@
 
         var gswms_legion = 'https://db.legiongis.com/geoserver/wms/';
         var tiles_legion = 'https://tiles.legiongis.com/';
-
-        var plssref = new ol.layer.Tile({
-            name: 'plssref',
-            source: new ol.source.TileWMS({
-                url: gswms_legion,
-                params: {
-                    'LAYERS': 'crnha:PLSS_towns',
-                    'TILED': true,
-                },
-                serverType: 'geoserver'
-            })
-        });
-
-        var privland = new ol.layer.Tile({
-            name: 'privland',
-            source: new ol.source.TileWMS({
-                url: gswms_legion,
-                params: {
-                    'LAYERS': 'crnha:fedland_ownership',
-                    'TILED': true,
-                },
-                serverType: 'geoserver'
-            })
-        });
+        //
+        // var plssref = new ol.layer.Tile({
+        //     name: 'plssref',
+        //     source: new ol.source.TileWMS({
+        //         url: gswms_legion,
+        //         params: {
+        //             'LAYERS': 'crnha:PLSS_towns',
+        //             'TILED': true,
+        //         },
+        //         serverType: 'geoserver'
+        //     })
+        // });
+        //
+        // var privland = new ol.layer.Tile({
+        //     name: 'privland',
+        //     source: new ol.source.TileWMS({
+        //         url: gswms_legion,
+        //         params: {
+        //             'LAYERS': 'crnha:fedland_ownership',
+        //             'TILED': true,
+        //         },
+        //         serverType: 'geoserver'
+        //     })
+        // });
 
         arrayOSM = ["http://otile1.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpg",
                     "http://otile2.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpg",
@@ -316,27 +317,27 @@
             //    };
             //});
 
-            $('#plssref').on('click', function() {
-                if ($(this).hasClass('selected')){
-                    $(this).removeClass('selected');
-                    collection.remove(plssref);
-                } else {
-                    $(this).addClass('selected');
-                    collection.push(plssref);
-                }
-                map.setLayerGroup = new ol.layer.Group(collection);
-            });
-
-            $('#privateland').on('click', function() {
-                if ($(this).hasClass('selected')){
-                    $(this).removeClass('selected');
-                    collection.remove(privland);
-                } else {
-                    $(this).addClass('selected');
-                    collection.push(privland);
-                }
-                map.setLayerGroup = new ol.layer.Group(collection);
-            });
+            // $('#plssref').on('click', function() {
+            //     if ($(this).hasClass('selected')){
+            //         $(this).removeClass('selected');
+            //         collection.remove(plssref);
+            //     } else {
+            //         $(this).addClass('selected');
+            //         collection.push(plssref);
+            //     }
+            //     map.setLayerGroup = new ol.layer.Group(collection);
+            // });
+            //
+            // $('#privateland').on('click', function() {
+            //     if ($(this).hasClass('selected')){
+            //         $(this).removeClass('selected');
+            //         collection.remove(privland);
+            //     } else {
+            //         $(this).addClass('selected');
+            //         collection.push(privland);
+            //     }
+            //     map.setLayerGroup = new ol.layer.Group(collection);
+            // });
 
             $('#osm').on('click', function() {
                 collection.setAt(0, osm);
