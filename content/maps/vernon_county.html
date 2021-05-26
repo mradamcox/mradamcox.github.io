@@ -25,8 +25,8 @@
                     <ul id="bmlist" class="bar">
                         <li id="rowhead"><b>BASEMAP</b></li>
                         <li><button id="osm" class="layer wide bm" class="selected">open street map</button></li>
-                        <!--<li><button id="imagery" class="layer wide bm">aerial imagery</button></li>
-                        <li><button id="hybrid" class="layer wide bm">hybrid</button></li>-->
+                        <!-- <li><button id="imagery" class="layer wide bm">aerial imagery</button></li> -->
+                        <!-- <li><button id="mapbox" class="layer wide bm">satellite</button></li> -->
                         <li><button id="relief" class="layer wide bm">LiDAR relief</button></li>
                         <li><button id="blank" class="layer bm"><em>blank</em></button></li>
                     </ul>
@@ -145,7 +145,7 @@
             })
         };
 
-        var basemaps = [osm,relief,blank];
+        var basemaps = [osm,imagery,relief,blank];
         var overlays = [coe,blank];
 
         var collection = new ol.Collection([osm.layer,coe.layer]);
@@ -193,7 +193,6 @@
                     var basemap = basemaps[i]
                     if (basemap.id === $(this).attr('id')) {
                         collection.setAt(0, basemap.layer);
-
                         break;
                     }
                 }
