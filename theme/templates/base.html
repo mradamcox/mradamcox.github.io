@@ -4,9 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-   <!-- jQuery library -->
-    <script src="/theme/plugins/jquery/jquery.min.js"></script>
-
     <!-- website css -->
     <link rel="stylesheet" href="/theme/css/main.css">
     <link rel="stylesheet" href="/theme/css/map.css">
@@ -70,15 +67,24 @@
     {% endblock %}
   </div>
 <script>
-    var c1 = "mr.adamcox";
-    var c2 = "@";
-    var c3 = "gmail.com";
-    var email = c1+c2+c3
-    $(document).ready(function() {
-        $('.email-address-txt').html(email);
-        $('.email-address-txt').attr("href", "mailto:"+email);
-        $('.email-address').attr("href", "mailto:"+email);
-    });
+
+window.onload = function() {
+  const c1 = "mr.adamcox";
+    const c2 = "@";
+    const c3 = "gmail.com";
+    const email = c1+c2+c3
+
+    var contentClass = document.getElementsByClassName("email-address-txt");
+    for (var i = 0; i < contentClass.length; i++) {
+        contentClass[i].innerHTML = email;
+        contentClass[i].setAttribute("href", "mailto:"+email);
+    }
+    var contentClass2 = document.getElementsByClassName("email-address");
+    for (var i = 0; i < contentClass2.length; i++) {
+        contentClass2[i].setAttribute("href", "mailto:"+email);
+    }
+}
+
 </script>
 </body>
 </html>
