@@ -5,17 +5,13 @@
 {% endblock %}
 {% block content %}
 
-<div class="row">
-    <div class="col-xs-12">
-        <h3>{{ dates.0.title }}</h3>
-        <h4>{{ dates.0.locale_date }}</h4>
-        {{dates.0.content}}
-    </div>
-</div>
+<h1>{{ dates.0.title }}</h1>
+<h3>{{ dates.0.locale_date }}</h3>
+{{dates.0.content}}
 
 <hr>
 
-<h4>OLD POSTS</h4>
+<h2>OLD POSTS</h2>
 
 <dl>
 {% for article in dates %}

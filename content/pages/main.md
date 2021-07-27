@@ -1,10 +1,10 @@
 Title: ABOUT
 sortorder: 1
-template: page
+template: index
 save_as: index.html
 url: index.html
 
-#### Hello ~
+# Hello ~
 
 <!-- <div class="row">
 <div class="col-xs-12 col-sm-9"> -->
@@ -18,6 +18,9 @@ I also have a consulting business, [Legion GIS](https://legiongis.com), through 
 You can find my CV [here](pages/cv.html).
 
 Thanks for looking, and feel free to get in touch: <a class="email-address-txt"></a>.
+
+<!-- <iframe src='https://view.officeapps.live.com/op/embed.aspx?src=[https://mradamcox.github.io/theme/files/slides_AC.pptx]' width='100%' height='600px' frameborder='0'> -->
+<!-- <iframe src='https://mradamcox.github.io' width='100%' height='600px' frameborder='0'> -->
 <!-- </div>
 <div class="col-xs-12 col-sm-3">
 <img src="/theme/img/ac_headshot.jpg"></a>

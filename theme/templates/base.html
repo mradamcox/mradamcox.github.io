@@ -7,10 +7,6 @@
    <!-- jQuery library -->
     <script src="/theme/plugins/jquery/jquery.min.js"></script>
 
-    <!-- bootstrap -->
-    <link rel="stylesheet" href="/theme/plugins/bootstrap/bootstrap.min.css">
-    <script src="/theme/plugins/bootstrap/bootstrap.min.js"></script>
-
     <!-- website css -->
     <link rel="stylesheet" href="/theme/css/main.css">
     <link rel="stylesheet" href="/theme/css/map.css">
@@ -45,52 +41,44 @@
     {% endblock head %}
 </head>
 <body>
-    <div class="content">
-        <div class="container">
-            <div class="row topbar hidden-xs">
-                {% for p in pages|sort(attribute='sortorder') %}
-                    <a href="/{{ p.url }}">
-                        <div class="col-xs-12 col-sm-4 nav-btn {% if p == page %} active {% endif %}" {% if loop.first %} style="border-bottom-left-radius:7px" {% endif %} {% if loop.last %} style="border-bottom-right-radius:7px" {% endif %}><h4>{{ p.title }}</h4></div>
-
-                    </a>
-                {% endfor %}
-            </div>
-            <div class="row topbar hidden-sm hidden-md hidden-lg">
-                {% for p in pages|sort(attribute='sortorder') %}
-                    <a href="/{{ p.url }}">
-                        <div class="col-xs-12 col-sm-4 nav-btn {% if p == page %} active {% endif %} {% if loop.last %} mobile-last {% endif %}" {% if loop.first %} style="border-top:solid 2px black" {% endif %}><h4>{{ p.title }}</h4></div>
-                    </a>
-                {% endfor %}
-            </div>
-            <div class="row">
-               <div class="col-xs-12">
-                    {% block pageheader %}
-                    {% endblock %}
-                </div>
-            </div>
-            <div class="row">
-               <div class="col-xs-12">
-                    {% block content %}
-                    {% endblock %}
-                </div>
-            </div>
-            <hr>
-            {% block footer %}
-            {% include 'credits.html' %}
-            {% endblock %}
-            </div>
-        </div>
+  <div class="container">
+    <div class="topbar">
+      {% for p in pages|sort(attribute='sortorder') %}
+      <div class="nav-btn {% if p == page %}active{% endif %} {% if loop.first %}nav-btn-first{% endif %} {% if loop.last %}nav-btn-last{% endif %}">
+        <a href="/{{ p.url }}"><h4>{{ p.title }}</h4></a>
+      </div>
+      {% endfor %}
     </div>
-    <script>
-        var c1 = "mr.adamcox";
-        var c2 = "@";
-        var c3 = "gmail.com";
-        var email = c1+c2+c3
-        $(document).ready(function() {
-            $('.email-address-txt').html(email);
-            $('.email-address-txt').attr("href", "mailto:"+email);
-            $('.email-address').attr("href", "mailto:"+email);
-        });
-    </script>
+    <div class="content">
+    {% block pageheader %}
+    {% endblock %}
+    {% block content %}
+    {% endblock %}
+    </div>
+    <hr>
+    {% block footer %}
+    <div class="row footer">
+      <p>
+          <a href="https://github.com/mradamcox"><img src="/theme/img/github.png"></a>
+          <a href="https://observablehq.com/@mradamcox"><img src="/theme/img/observablehq.png"></a>
+          <a href="https://www.twitter.com/mradamcox"><img src="/theme/img/twitter.png"></a>
+          <a href="https://www.linkedin.com/in/mradamcox"><img src="/theme/img/li.png"></a>
+          <a class="email-address"><img src="/theme/img/email.png"></a>
+      </p>
+      <p style="font-size:small">site updated {{PUBLISH_DATE}} | powered by <a href="http://getpelican.com/">pelican</a></p>
+    </div>
+    {% endblock %}
+  </div>
+<script>
+    var c1 = "mr.adamcox";
+    var c2 = "@";
+    var c3 = "gmail.com";
+    var email = c1+c2+c3
+    $(document).ready(function() {
+        $('.email-address-txt').html(email);
+        $('.email-address-txt').attr("href", "mailto:"+email);
+        $('.email-address').attr("href", "mailto:"+email);
+    });
+</script>
 </body>
 </html>
