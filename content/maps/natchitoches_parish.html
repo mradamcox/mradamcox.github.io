@@ -90,33 +90,7 @@
 
         <!-- actual map code -->
         <script>
-
-        var gswms_legion = 'https://db.legiongis.com/geoserver/wms/';
         var tiles_legion = 'https://tiles.legiongis.com/';
-        //
-        // var plssref = new ol.layer.Tile({
-        //     name: 'plssref',
-        //     source: new ol.source.TileWMS({
-        //         url: gswms_legion,
-        //         params: {
-        //             'LAYERS': 'crnha:PLSS_towns',
-        //             'TILED': true,
-        //         },
-        //         serverType: 'geoserver'
-        //     })
-        // });
-        //
-        // var privland = new ol.layer.Tile({
-        //     name: 'privland',
-        //     source: new ol.source.TileWMS({
-        //         url: gswms_legion,
-        //         params: {
-        //             'LAYERS': 'crnha:fedland_ownership',
-        //             'TILED': true,
-        //         },
-        //         serverType: 'geoserver'
-        //     })
-        // });
 
         arrayOSM = ["http://otile1.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpg",
                     "http://otile2.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpg",
@@ -175,9 +149,9 @@
         var confed_full = new ol.layer.Tile({
             name: 'confed_full',
             source: new ol.source.TileWMS({
-                url: gswms_legion,
+                url: "https://gn.legiongis.com/geoserver/ows",
                 params: {
-                    'LAYERS': 'crnha:confedmaps_full',
+                    'LAYERS': 'rg77z33:confedmaps_full',
                     'TILED': true,
                     },
                 serverType: 'geoserver'
@@ -187,9 +161,9 @@
         var confed_trans = new ol.layer.Tile({
             name: 'confed_trans',
             source: new ol.source.TileWMS({
-                url: gswms_legion,
+                url: "https://gn.legiongis.com/geoserver/ows",
                 params: {
-                    'LAYERS': 'crnha:confedmaps_trans',
+                    'LAYERS': 'rg77z33:confedmaps_trans',
                     'TILED': true,
                     },
                 serverType: 'geoserver'
@@ -200,18 +174,6 @@
             name: 'platmaps',
             source: new ol.source.XYZ({
                 url: tiles_legion + 'historictownplats/{z}/{x}/{y}.png'
-            })
-        });
-
-        var map174 = new ol.layer.Tile({
-            name: 'map174',
-            source: new ol.source.TileWMS({
-                url: 'http://crhim.canerivernha.org/geoserver/wms/',
-                params: {
-                    'LAYERS': 'raster:map174',
-                    'TILED': true,
-                    },
-                serverType: 'geoserver'
             })
         });
 
@@ -305,39 +267,6 @@
 
             showInfo();
             hideInfo();
-
-            //$('#imagery').on('click', function() {
-            //    collection.setAt(0, imagery);
-            //    map.setLayerGroup = new ol.layer.Group(collection);
-            //
-            //    $(noteid_arr.join([separator = ','])).hide();
-            //    noteid_arr[0] = "p#imagerynote";
-            //    if (info_shown == true) {
-            //        $(noteid_arr.join([separator = ','])).show();
-            //    };
-            //});
-
-            // $('#plssref').on('click', function() {
-            //     if ($(this).hasClass('selected')){
-            //         $(this).removeClass('selected');
-            //         collection.remove(plssref);
-            //     } else {
-            //         $(this).addClass('selected');
-            //         collection.push(plssref);
-            //     }
-            //     map.setLayerGroup = new ol.layer.Group(collection);
-            // });
-            //
-            // $('#privateland').on('click', function() {
-            //     if ($(this).hasClass('selected')){
-            //         $(this).removeClass('selected');
-            //         collection.remove(privland);
-            //     } else {
-            //         $(this).addClass('selected');
-            //         collection.push(privland);
-            //     }
-            //     map.setLayerGroup = new ol.layer.Group(collection);
-            // });
 
             $('#osm').on('click', function() {
                 collection.setAt(0, osm);
