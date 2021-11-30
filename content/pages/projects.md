@@ -4,12 +4,14 @@ template: page
 
 <p style="text-align:center; margin-top: 15px"><strong>~ Current Work ~</strong></p>
 
+## [oldinsurancemaps.net](/pages/old-insurance-maps.html)
+
 ## Online Historical Map Georeferencer (OHMG) ~ [slides](https://docs.google.com/presentation/d/e/2PACX-1vSwbTO3jKrwGFKwouZdPSWfQVB3sws8I7bdH_CiSoNTt3l3wefu3s50NAxXn4N7M9CkW09hf9xZh63j/pub?start=false&loop=false&delayms=3000)
 
-For my Geography M.S. thesis at Louisiana State University I am putting together a web platform to facilitate crowdsourced georeferencing of historical maps, based on the geospatial content management system
-[GeoNode](https://geonode.org). There will be a lot more to say about it soon,
-but in the meantime you can view the [slides](https://docs.google.com/presentation/d/e/2PACX-1vSwbTO3jKrwGFKwouZdPSWfQVB3sws8I7bdH_CiSoNTt3l3wefu3s50NAxXn4N7M9CkW09hf9xZh63j/pub?start=false&loop=false&delayms=3000) that I used for a presentation at the
-[GeoNode Virtual Summit](https://summit.geonode.org/schedule/#session-110) in December 2020.
+While creating oldinsurancemaps.net, I designed the georeferencing components as a
+stand-alone app that can ostensibly be added to any GeoNode installation. Eventually, I would like to host a generic example of this plugin, for demo purposes. Adding document georeferencing capabilities to GeoNode would greatly expand the types of use cases that the system would support.
+
+For example, a municipal government may implement GeoNode as their geospatial data hub, and then add the georeferencing plugin to the installation so that planners (or members of the public) could upload historical surveys or city maps, georeference them, and then integrate these layers into public facing web maps. Spatial data could also be directly digitized into layers managed by GeoNode.
 
 ---
 

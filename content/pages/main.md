@@ -11,7 +11,7 @@ url: index.html
 
 I am a GIS specialist/developer, and often cartographer, who loves working with historical maps and open source software. My main tools are QGIS, Python, PostGIS, and Django.
 
-I am currently a masters student at [Louisiana State University](https://lsu.edu) studying in both the Geography and Library Information Science departments.
+I am currently a masters student at [Louisiana State University](https://lsu.edu) studying in both the Geography and Library Information Science departments. My thesis project is [oldinsurancemaps.net](https://oldinsurancemaps.net)&mdash;[read more about it here](pages/old-insurance-maps.html).
 
 I also have a consulting business, [Legion GIS](https://legiongis.com), through which I have worked extensively with the open source project [Arches](https://archesproject.org).
 
