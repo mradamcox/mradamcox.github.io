@@ -27,9 +27,10 @@
             {% endif %}
         </div>
     </section>
+    <hr>
     <footer class="footer-article">
         <div class="tags-and-categories">Filed: <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
-        | Tagged: {% if article.tags %}{% for tag in article.tags %}<a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }} </a>{% endfor %}{% endif %}
+        | Tagged: {% if article.tags %}{% for tag in article.tags %}<a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a> {% endfor %}{% endif %}
     </footer>
     {% include 'article_discus.html' %}
 </div>

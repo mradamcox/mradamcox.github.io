@@ -5,18 +5,20 @@
 {% endblock %}
 {% block content %}
 
-<h1>{{ dates.0.title }}</h1>
+<h1>LATEST POST</h1>
 <h3>{{ dates.0.locale_date }}</h3>
-{{dates.0.content}}
+<h2><a href="/{{ dates.0.url }}">{{ dates.0.title }}</a></h2>
+
+{{dates.0.summary}}
 
 <hr>
 
-<h2>OLD POSTS</h2>
+<h2>ARCHIVE</h2>
 
 <dl>
-{% for article in dates %}
+{% for article in dates[1:] %}
     <dt>{{ article.locale_date }}</dt>
-    <dd><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></dd>
+    <dd><a href="/{{ article.url }}">{{ article.title }}</a></dd>
 {% endfor %}
 </dl>
 
