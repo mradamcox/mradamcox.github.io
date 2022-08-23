@@ -171,7 +171,7 @@ The overall goal was to create a building footprint layer with business informat
 
 #### Creating the Building Footprint Layer in Mapbox
     
-In QGIS, I export the building footprint shapefile to GeoJSON (EPSG:4326), and exclude all fields from the export. The result is a GeoJSON file that only contains the geometry for every building in New Orleans, file size is ~54mb. Upload this file to Mapbox as a Tileset, called building-footprints-lite, and then create a new Style, starting with the blank template. Add the building-footprints-lite Tileset to the Style, and give it a simple uniform set of style rules: fill is white and 75% opaque, outline ("stroke") is 1pt, black, and 99% opaque. This style can not be added as a static overlay draped on the 
+In QGIS, I export the building footprint shapefile to GeoJSON (EPSG:4326), and exclude all fields from the export. The result is a GeoJSON file that only contains the geometry for every building in New Orleans, file size is ~54mb. Upload this file to Mapbox as a Tileset, called building-footprints-lite, and then create a new Style, starting with the blank template. Add the building-footprints-lite Tileset to the Style, and give it a simple uniform set of style rules: fill is white and 75% opaque, outline ("stroke") is 1pt, black, and 99% opaque. This style can now be added as a static overlay draped on the final map.
 
 #### Creating the Data Layer
 
