@@ -19,14 +19,3 @@ body {
   padding-left: 25px;
   background: beige;
 }
-
-.panel-title {
-  height: 100px;
-
-}
-
-.panel-content {
-  height: 100px;
-  padding: 15px;
-
-}

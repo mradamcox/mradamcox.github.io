@@ -93,11 +93,8 @@ var styles = {
 };
 
 var styleFunction = function(feature) {
-    console.log(feature);
   return styles[feature.getGeometry().getType()];
 };
-
-
 
 var popup = function (feature, layer) {
     var name = feature.properties.BusinessName;
@@ -123,7 +120,6 @@ var simplePoly = new ol.style.Style({
     color: 'rgba(0, 0, 255, 0.1)'
   })
 })
-
 
 var interactions = ol.interaction.defaults({altShiftDragRotate:false, pinchRotate:false});
 
@@ -201,33 +197,31 @@ function getRelatedBusinesses (licenseNo) {
     buildingData['features'].forEach( function (feature) {
         var lic = feature.properties['BusinessLicenseNumber']
         if (licenses.indexOf(lic) >= 0) {
-            related.push(feature.properties['BusinessName'] + " <em>(" + feature.properties['BusinessAddress'] + ")</em>")
+            related.push(feature.properties['BusinessName'] + " <br><em>&nbsp;&nbsp;" + feature.properties['BusinessAddress'] + "</em>")
         }
     });
     return related
 }
 
 map.on('click', function(event) {
-  //source.clear();
+  // source.clear();
   map.forEachFeatureAtPixel(event.pixel, function(feature) {
     const geometry = feature.getGeometry();
-    var licenseNo = feature.values_.BusinessLicenseNumber;
-    var relatedNos = feature.values_.RelatedLicenses;
+
+    var licenseNo = feature.getProperties().BusinessLicenseNumber;
+    var relatedNos = feature.getProperties().RelatedLicenses;
     if (relatedNos != null) {
         related = getRelatedBusinesses(relatedNos);
     } else {
         related = ["None"]
     }
-    
-    $("#building-name").html(feature.values_.BusinessName);
-    $("#owner-name").html(feature.values_.OwnerName);
-    
-    
+
+    $("#building-name").html(feature.getProperties().BusinessName);
+    $("#owner-name").html(feature.getProperties().OwnerName);
+
     $("#related").html(related.join("<br>"));
-    console.log(feature.values_);
-    //source.addFeature(new Feature(fromExtent(geometry.getExtent())));
+    // source.addFeature(new Feature(fromExtent(geometry.getExtent())));
   }, {
     hitTolerance: 2
   });
-  console.log(buildingData);
 });
