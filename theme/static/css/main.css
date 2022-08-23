@@ -33,7 +33,7 @@ body {
     /* retain this color for the theme in general, but use the image for background instead */
     /* background-color: #BDA691; */
     background: url('/theme/img/persian-pattern-lightmauve.jpg');
-    background-size: cover;
+    background-size: 100%;
     margin-top: 0px;
     padding-top: 0px;
     font-family: 'Lato', sans-serif;
@@ -52,6 +52,39 @@ h1, h2, h3, h4, h5 {
 p {
     font-size: 16px;
     margin: 0 0 10px;
+}
+
+pre {
+    max-width: 100%;
+    overflow-x: scroll;
+    min-height: 2em;
+    background: #EEE6DE;
+    padding: 5px;
+}
+
+pre.limit-height {
+    max-height: 400px;
+    overflow-y: scroll;
+}
+
+figcaption {
+    font-style: italic;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+a, a:link {
+    color: #364DC9
+}
+
+a:hover {
+    color: #CF5734
+}
+
+hr {
+    border: dashed 1px #9caba1;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .container {
@@ -127,20 +160,6 @@ p {
     background-color: #BACAC5;
 }
 
-a, a:link {
-    color: #364DC9
-}
-
-a:hover {
-    color: #CF5734
-}
-
-hr {
-    border-top: dashed 1px #9caba1;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
 .audio-column {
     padding: 10px;
 }
@@ -165,4 +184,8 @@ hr {
     height: 22px;
     margin-right: 10px;
     margin-left: 10px;
+}
+
+img {
+    max-width: 100%;
 }
