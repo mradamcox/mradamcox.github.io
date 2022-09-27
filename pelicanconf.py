@@ -38,10 +38,12 @@ PUBLISH_DATE = date.today().strftime("%B %-d, %Y")
 DEFAULT_DATE_FORMAT = ("%B %d, %Y")
 
 # Blogroll
-LINKS = (('Pelican', 'http://getpelican.com/'),
-         ('Python.org', 'http://python.org/'),
-         ('Jinja2', 'http://jinja.pocoo.org/'),
-         ('You can modify those links in your config file', '#'),)
+LINKS = (
+    ('GitHub', "https://github.com/mradamcox", "/theme/img/github.png"),
+    ('Observable', "https://observablehq.com/@mradamcox", "/theme/img/observablehq.png"),
+    ('Twitter', "https://www.twitter.com/mradamcox", "/theme/img/twitter.png"),
+    ('LinkedIn', "https://www.linkedin.com/in/mradamcox", "/theme/img/li.png"),
+)
 
 # Social widget
 SOCIAL = (('You can add links in your config file', '#'),
