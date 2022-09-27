@@ -1,4 +1,4 @@
-Title: ABOUT
+Title: MAIN
 sortorder: 1
 template: index
 save_as: index.html
@@ -6,23 +6,12 @@ url: index.html
 
 # Hello ~
 
-<!-- <div class="row">
-<div class="col-xs-12 col-sm-9"> -->
+I am a GIS specialist/developer, and often cartographer, who loves working with historical maps and open source software. My main tools are QGIS, Python, PostGIS, and Django. This site is a continual work-in-progress, but I work on a lot of fun projects so I try to share about them here.
 
-I am a GIS specialist/developer, and often cartographer, who loves working with historical maps and open source software. My main tools are QGIS, Python, PostGIS, and Django.
+In summer of 2022 I completed MS Geography and MLIS degrees at Louisiana State University. My thesis, ["Creating a Public Space for Georeferencing Sanborn Maps: A Louisiana Case Study"](https://digitalcommons.lsu.edu/gradschool_theses/5641/) explored a crowdsourcing approach for content in the Library of Congress Sanborn maps collection. You can read a bit more about it [in the documentation](https://docs.oldinsurancemaps.net) or see the outcome on the project site: [oldinsurancemaps.net](https://oldinsurancemaps.net).
 
-I am currently a masters student at [Louisiana State University](https://lsu.edu) studying in both the Geography and Library Information Science departments. My thesis project is [oldinsurancemaps.net](https://oldinsurancemaps.net)&mdash;[read more about it here](pages/old-insurance-maps.html).
+I also have a geospatial consulting business, [Legion GIS](https://legiongis.com), through which I have worked extensively with the open source project [Arches](https://archesproject.org).
 
-I also have a consulting business, [Legion GIS](https://legiongis.com), through which I have worked extensively with the open source project [Arches](https://archesproject.org).
-
-You can find my CV [here](pages/cv.html).
+You can find my almost-up-to-date CV [here](pages/cv.html).
 
 Thanks for looking, and feel free to get in touch: <a class="email-address-txt"></a>.
-
-<!-- <iframe src='https://view.officeapps.live.com/op/embed.aspx?src=[https://mradamcox.github.io/theme/files/slides_AC.pptx]' width='100%' height='600px' frameborder='0'> -->
-<!-- <iframe src='https://mradamcox.github.io' width='100%' height='600px' frameborder='0'> -->
-<!-- </div>
-<div class="col-xs-12 col-sm-3">
-<img src="/theme/img/ac_headshot.jpg"></a>
-</div>
-</div> -->

@@ -1,3 +1,3 @@
 Title: POSTS
-sortorder: 2
+sortorder: 3
 template: blog

@@ -1,10 +1,28 @@
 Title: PROJECTS
-sortorder: 3
+sortorder: 2
 template: page
 
 <p style="text-align:center; margin-top: 15px"><strong>~ Current Work ~</strong></p>
 
-## [oldinsurancemaps.net](/pages/old-insurance-maps.html)
+# Crowdsourced Georeferencing Sanborn Maps
+
+Thesis paper: ["Creating a Public Space for Georeferencing Sanborn Maps: A Louisiana Case Study"](https://digitalcommons.lsu.edu/gradschool_theses/5641/)
+
+For my Geography M.S. thesis at Louisiana State University I put together an open platform that allows anyone to georeference historical fire insurance maps that are held in the Library of Congress [digital Sanborn collection](https://loc.gov/collections/sanborn-maps). There are over 500,000 scanned documents in this collection, which cover 10,000+ communities in the US.
+
+The goal of this project is to create a space in which the public can help transform scanned
+maps into more reusable spatial layers, while also facilitating engagement with those maps.
+For the beta release, only maps of cities in Louisiana are available.
+
+### Presentations
+
+**"Creating a Public Space for Georeferencing Sanborn Maps"** -- [NACIS 2021 - OKC](https://nacis2021.sched.com/event/lXOu/cartographic-resources)
+
+> [video](https://www.youtube.com/watch?v=g7agzL4G5q8) ~ [slides](https://docs.google.com/presentation/d/10khtmm8TOkZpsWNo-Yfvip4HqXHhwrPycIJYsBg1mA4/edit?usp=sharing)
+
+**"Extending GeoNode to Support Historical Map Georeferencing"** -- [GeoNode Virtual Summit - 2020](https://summit.geonode.org/schedule/#session-110)
+
+> [slides](https://docs.google.com/presentation/d/e/2PACX-1vSwbTO3jKrwGFKwouZdPSWfQVB3sws8I7bdH_CiSoNTt3l3wefu3s50NAxXn4N7M9CkW09hf9xZh63j/pub?start=false&loop=false&delayms=3000)
 
 ## Online Historical Map Georeferencer (OHMG) ~ [slides](https://docs.google.com/presentation/d/e/2PACX-1vSwbTO3jKrwGFKwouZdPSWfQVB3sws8I7bdH_CiSoNTt3l3wefu3s50NAxXn4N7M9CkW09hf9xZh63j/pub?start=false&loop=false&delayms=3000)
 
