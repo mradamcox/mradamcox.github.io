@@ -22,3 +22,14 @@
 
 {% endblock content %}
 <!-- END CONTENT -->
+
+{% block sidebar %}
+<div class="sidebar">
+  <span>Find me on...</span>
+  <ul>
+    {% for l in LINKS %}
+    <li><a href="{{ l.1 }}">{{ l.0 }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}

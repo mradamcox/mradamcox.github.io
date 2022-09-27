@@ -46,23 +46,28 @@
       </div>
       {% endfor %}
     </div>
-    <div class="content">
-    {% block pageheader %}
-    {% endblock %}
-    {% block content %}
-    {% endblock %}
+    <div class="content-wrapper" style="display: flex;">
+      <div class="content">
+      {% block pageheader %}
+      {% endblock %}
+      {% block content %}
+      {% endblock %}
+      </div>
+      <div>
+      {% block sidebar %}
+      {% endblock %}
+      </div>
     </div>
-    <div style="padding:0px 20px 20px 20px"><hr></div>
+    <div style="padding:0px 20px 10px 20px"><hr></div>
     {% block footer %}
     <div class="row footer">
       <p>
-          <a href="https://github.com/mradamcox"><img src="/theme/img/github.png"></a>
-          <a href="https://observablehq.com/@mradamcox"><img src="/theme/img/observablehq.png"></a>
-          <a href="https://www.twitter.com/mradamcox"><img src="/theme/img/twitter.png"></a>
-          <a href="https://www.linkedin.com/in/mradamcox"><img src="/theme/img/li.png"></a>
+          {% for l in LINKS %}
+          <a href="{{ l.1 }}"><img src="{{ l.2 }}"></a>
+          {% endfor %}
           <a class="email-address"><img src="/theme/img/email.png"></a>
       </p>
-      <p style="font-size:small">site updated {{PUBLISH_DATE}} | powered by <a href="http://getpelican.com/">pelican</a></p>
+      <p style="font-size:small">last updated {{PUBLISH_DATE}} | <a href="https://github.com/mradamcox/mradamcox-github.io-src">site source code</a> | built with <a href="http://getpelican.com/">pelican</a></p>
     </div>
     {% endblock %}
   </div>
