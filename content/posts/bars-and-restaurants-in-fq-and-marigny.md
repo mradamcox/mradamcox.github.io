@@ -293,4 +293,4 @@ In then end, I have four layers, which hopefully blend together to look like les
 
 ### Map Interactivity
 
-The use of the map is very simple: click on a business, and it's name, owner, and any other businesses owned by the same entity will pop up in the right-hand panel. [Enjoy!](https://mradamcox.github.io/geog4046/final/)
+The use of the map is very simple: click on a business, and its name, owner, and any other businesses owned by the same entity will pop up in the right-hand panel. [Enjoy!](https://mradamcox.github.io/geog4046/final/)
