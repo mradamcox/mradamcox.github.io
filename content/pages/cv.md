@@ -1,14 +1,17 @@
 Title: CV
-status: hidden
+sortorder: 4
 template: page
+status: hidden
+
 ###<center>Adam C F Cox</center>
 
-#####<center><a class="email-address-txt"></a> | 608-606-9928 | <a href="/theme/files/AdamCox-CV-Dec2020.pdf">as pdf</a></center>
+#####<center><a class="email-address-txt"></a></center>
 
 #### Education
 
-* M.S., Geography – Louisiana State University, Baton Rouge, LA (expected 2021)
-* B.A., Anthropology – Lawrence University, Appleton, WI (2007 - 2011)
+* MLIS – Louisiana State University, Baton Rouge, LA (2022)
+* MS, Geography – Louisiana State University, Baton Rouge, LA (2022)
+* BA, Anthropology – Lawrence University, Appleton, WI (2011)
     Phi Beta Kappa | Minor: Music
 
 #### Employment History
@@ -71,6 +74,7 @@ template: page
 
 #### Conference Presentations
 
+* **Cox, A.**, 2021: Creating a Public Space for Georeferencing Sanborn Maps. Presentation for NACIS 2021, Oklahoma City.
 * **Cox, A.**, 2020: Extending GeoNode to Support Historical Map Georeferencing. Presentation for GeoNode Summit 2020, Virtual Conference, Dec 7-9.
 * **Cox, A.**, 2020: QGIS and GIMP for Enhancing Historical Maps. Presentation for QGIS North America, Virtual Conference, July 17th, 24th, 31st.
 * Ringhoff, M., Ausloos, J., and **Cox, A.**, 2019: Designing an Arches Database. Paper presented at 2019 California Preservation Conference, Palm Springs, California, May 8-11.
@@ -82,6 +86,7 @@ template: page
 
 #### Conference Attendance
 
+* NACIS Annual Meeting, Oklahoma City (October 2021)
 * GeoNode Summit, Virtual Meeting (December 2020)
 * NACIS Annual Meeting, Virtual Meeting (October 2020)
 * QGIS North America Annual Meeting, Virtual Meeting (July 2020)
