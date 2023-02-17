@@ -4,32 +4,7 @@ template: page
 
 <p style="text-align:center; margin-top: 15px"><strong>~ Current Work ~</strong></p>
 
-# Crowdsourced Georeferencing Sanborn Maps
-
-Thesis paper: ["Creating a Public Space for Georeferencing Sanborn Maps: A Louisiana Case Study"](https://digitalcommons.lsu.edu/gradschool_theses/5641/)
-
-For my Geography M.S. thesis at Louisiana State University I put together an open platform that allows anyone to georeference historical fire insurance maps that are held in the Library of Congress [digital Sanborn collection](https://loc.gov/collections/sanborn-maps). There are over 500,000 scanned documents in this collection, which cover 10,000+ communities in the US.
-
-The goal of this project is to create a space in which the public can help transform scanned
-maps into more reusable spatial layers, while also facilitating engagement with those maps.
-For the beta release, only maps of cities in Louisiana are available.
-
-### Presentations
-
-**"Creating a Public Space for Georeferencing Sanborn Maps"** -- [NACIS 2021 - OKC](https://nacis2021.sched.com/event/lXOu/cartographic-resources)
-
-> [video](https://www.youtube.com/watch?v=g7agzL4G5q8) ~ [slides](https://docs.google.com/presentation/d/10khtmm8TOkZpsWNo-Yfvip4HqXHhwrPycIJYsBg1mA4/edit?usp=sharing)
-
-**"Extending GeoNode to Support Historical Map Georeferencing"** -- [GeoNode Virtual Summit - 2020](https://summit.geonode.org/schedule/#session-110)
-
-> [slides](https://docs.google.com/presentation/d/e/2PACX-1vSwbTO3jKrwGFKwouZdPSWfQVB3sws8I7bdH_CiSoNTt3l3wefu3s50NAxXn4N7M9CkW09hf9xZh63j/pub?start=false&loop=false&delayms=3000)
-
-## Online Historical Map Georeferencer (OHMG) ~ [slides](https://docs.google.com/presentation/d/e/2PACX-1vSwbTO3jKrwGFKwouZdPSWfQVB3sws8I7bdH_CiSoNTt3l3wefu3s50NAxXn4N7M9CkW09hf9xZh63j/pub?start=false&loop=false&delayms=3000)
-
-While creating oldinsurancemaps.net, I designed the georeferencing components as a
-stand-alone app that can ostensibly be added to any GeoNode installation. Eventually, I would like to host a generic example of this plugin, for demo purposes. Adding document georeferencing capabilities to GeoNode would greatly expand the types of use cases that the system would support.
-
-For example, a municipal government may implement GeoNode as their geospatial data hub, and then add the georeferencing plugin to the installation so that planners (or members of the public) could upload historical surveys or city maps, georeference them, and then integrate these layers into public facing web maps. Spatial data could also be directly digitized into layers managed by GeoNode.
+[Crowdsourced Sanborn Map Georeferencing](/pages/oldinsurancemaps.html) ([oldinsurancemaps.net](https://oldinsurancemaps.net))
 
 ---
 
@@ -69,7 +44,15 @@ I worked with these recordings a bit for the Cane River Heritage Inventory & Map
 and I've left them available here for the time being, as that project is no longer
 maintained.
 
-## [Observable Notebooks](https://observablehq.com/collection/@mradamcox/web-maps)
+<div style="display:flex; flex-direction:column;">
+  <div style="display:flex; flex-direction:row; min-height:50px; border: 1px solid grey; border-radius: 4px; background: #E1E1E1;">
+    <div style="padding: 0px 10px;">
+        <h2>Web Maps in Observable Notebooks</h2>
+      <p>I use Observable a lot to create web maps--sometimes to share ideas, other times to just test out new layers.</p>
+    </div>
+    <div style="max-height:100%;">
+      <a href="https://observablehq.com/collection/@mradamcox/web-maps"><img src="/theme/img/obs-img.png" /></a>
+    </div>
+  </div>
+</div>
 
-I use Observable a lot to create web maps--sometimes to share ideas, other times to just
-test out new layers.
