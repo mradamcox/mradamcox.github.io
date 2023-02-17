@@ -1,0 +1,216 @@
+/* latin */
+@font-face {
+  font-family: 'Acme';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Acme Regular'), local('Acme-Regular'), url(/theme/fonts/acme/v9/RrQfboBx-C5_XxrBbg.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lato Regular'), local('Lato-Regular'), url(/theme/fonts/lato/v16/S6uyw4BMUTPHjxAwXjeu.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lato Regular'), local('Lato-Regular'), url(/theme/fonts/lato/v16/S6uyw4BMUTPHjx4wXg.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+
+html {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    /* retain this color for the theme in general, but use the image for background instead */
+    /* background-color: #BDA691; */
+    background: url('/theme/img/persian-pattern-lightmauve.jpg');
+    background-size: 100%;
+    margin-top: 0px;
+    padding-top: 0px;
+    font-family: 'Lato', sans-serif;
+    line-height: 1.5;
+    color: #333;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Acme', sans-serif;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+p {
+    font-size: 16px;
+    margin: 0 0 10px;
+}
+
+pre {
+    max-width: 100%;
+    overflow-x: scroll;
+    min-height: 2em;
+    background: #EEE6DE;
+    padding: 5px;
+}
+
+pre.limit-height {
+    max-height: 400px;
+    overflow-y: scroll;
+}
+
+figcaption {
+    font-style: italic;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+a, a:link {
+    color: #364DC9
+}
+
+a:hover {
+    color: #CF5734
+}
+
+hr {
+    border: dashed 1px #9caba1;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.container {
+    /* display: flex; */
+    max-width: 875px;
+    margin: 0px auto 25px auto;
+    background-color: #F8F7BF;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    box-shadow: 0px 0px 2px 2px #333;
+}
+
+.content-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.content {
+  padding: 20px;
+}
+
+.sidebar {
+    margin-top: 15px;
+    padding: 10px;
+    background: #FFFFFF78;
+    box-shadow: 0px 0px 2px 1px #a0a0a04f;
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+}
+
+.sidebar span {
+    font-style: italic;
+    text-align: center;
+}
+
+.sidebar ul {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-left: 30px;
+}
+
+/* NAVIGATION BAR */
+.topbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    z-index: 1;
+    border: none;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    box-shadow: 0px 0px 2px 1px #333;
+}
+
+.nav-btn {
+      padding-bottom: 5px;
+      padding-top: 5px;
+      margin: 0;
+      text-align: center;
+      background-color: #9CABA1;
+      width: 100%;
+}
+
+.nav-btn-first {
+  border-bottom-left-radius:7px;
+}
+
+.nav-btn-last {
+  border-bottom-right-radius:7px;
+}
+
+.nav-btn.mobile-last {
+      border-bottom-left-radius:7px;
+      border-bottom-right-radius:7px;
+}
+
+.topbar a {
+    overflow:hidden;
+    margin:0;
+    text-decoration:none;
+    text-align:center;
+    font-weight:bold;
+    font-style:normal;
+    font-size:20px;
+    color: black;
+}
+
+.topbar h4 {
+    color: black;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.nav-btn:hover {
+    background-color: #CF5734;
+}
+
+.active {
+    background-color: #BACAC5;
+}
+
+.audio-column {
+    padding: 10px;
+}
+
+.audio-column audio {
+    width: 100%;
+}
+
+.audio-column p {
+    text-align: center;
+}
+
+.content-article {
+    margin-top: 15px;
+}
+
+.footer {
+    text-align: center;
+}
+
+.footer img {
+    height: 22px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+img {
+    max-width: 100%;
+}

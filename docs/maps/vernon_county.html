@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html land="en">
+    <head>
+        <title>Vernon County</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+
+        <!-- OpenLayers -->
+        <script src="/theme/plugins/ol/3.5.0/ol.js"></script>
+        <link rel="stylesheet" href="/theme/plugins/ol/3.5.0/ol.css" type="text/css">
+
+        <!-- jquery -->
+        <script src="/theme/plugins/jquery/jquery.min.js"></script>
+
+        <!-- local CSS -->
+        <link rel="stylesheet" href="/theme/css/main.css">
+        <link rel="stylesheet" href="/theme/css/map.css">
+
+    </head>
+    <body>
+
+        <div class="container">
+            <div id="mapbar">
+                <div>
+                    <ul id="bmlist" class="bar">
+                        <li id="rowhead"><b>BASEMAP</b></li>
+                        <li><button id="osm" class="layer wide bm" class="selected">open street map</button></li>
+                        <!-- <li><button id="imagery" class="layer wide bm">aerial imagery</button></li> -->
+                        <!-- <li><button id="mapbox" class="layer wide bm">satellite</button></li> -->
+                        <li><button id="relief" class="layer wide bm">LiDAR relief</button></li>
+                        <li><button id="blank" class="layer bm"><em>blank</em></button></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <ul id="overlist" class="bar">
+                        <li id="rowhead"><b>OVERLAY</b></li>
+                        <li><button id="coe" class="layer hm">KVR Corps of Engineers</button></li>
+                        <li><button id="blank" class="layer hm"><em>none</em></button></li>
+                        <li><button id="temp-remove" class="layer"><em>-/+</em></button></li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div id="map" class="map"></div>
+
+            <div class="info-box" id="layer-info" style="display:none; margin-top:-115px"></div>
+            <div class="info-box" id="accuracy-box" style="display:none">
+                <em>The process of placing historic maps on current maps ("georeferencing") is done by matching points on the historic map to corresponding points on a current basemap.  It is not an exact process.  One can see above how the historical documents fit well in some places, and badly in others.  This is to say that the historic maps are best considered as showing features in their current day </em>vicinity<em>, not their exact location.</em>
+            </div>
+
+            <div id="footbar">
+
+                <b>layer info</b> <button id="toggleinfo" class="lite">show</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>accuracy note</b> <button id="togglenote" class="lite">show</button>
+
+			</div>
+        </div>
+
+        <script>
+
+        // BASEMAP LAYERS
+        var osm_attr = new ol.Attribution({
+            html: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors.'
+        });
+
+        var osm = {
+            id: "osm",
+            layer: new ol.layer.Tile({
+                name: 'osm',
+                source: new ol.source.XYZ({
+                    url: 'https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                    attributions: [osm_attr]
+                })
+            })
+        };
+
+        // for some reason can't get this to work.
+        var mapbox_api_key = "pk.eyJ1IjoibGVnaW9uZ2lzIiwiYSI6ImNrbXV4dDgxazAwN2Uyb3BmOG41Z3QxZmgifQ.2GoavKeggS1oqRR6H_EgHg";
+        var mapbox_aerial = {
+          id: "mapbox",
+          layer: new ol.layer.Tile({
+              name: 'mapbox',
+              type: 'base',
+              source: new ol.source.XYZ({
+                  url: 'https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/256/{z}/{x}/{y}?access_token='+mapbox_api_key,
+                  attributions: ["&copy; Mapbox"]
+              })
+          })
+        };
+
+        var ortho_labels = new ol.layer.Group({
+            style: 'AerialWithLabels',
+            layers: [
+                new ol.layer.Tile({
+                    name: 'imagery',
+                    preload: Infinity,
+                    source: new ol.source.MapQuest({
+                        layer: 'sat'
+                    })
+                }),
+                new ol.layer.Tile({
+                    source: new ol.source.MapQuest({layer: 'hyb'})
+                })
+            ]
+        });
+
+        var hybrid = {
+            id: "hybrid",
+            layer: ortho_labels,
+        };
+
+        var relief = {
+            id: "relief",
+            info: "relief map made from vc lidar data.",
+            layer: new ol.layer.Tile({
+                name: 'coe',
+                source: new ol.source.XYZ({
+                    url: 'https://tiles.legiongis.com/vcrelief_green/{z}/{x}/{y}.png'
+                })
+            })
+        };
+
+        // OVERLAYS
+
+        var coe = {
+            id: "coe",
+            info: "Map for Kickapoo Valley Flood Control Project, 1967. Army Corps of Engineers. original source <a href='http://www.vernoncounty.org/GIS/Directory/1967COEMapsKickapooValleyFloodControlProject/' target='_blank'>here</a>.",
+            layer: new ol.layer.Tile({
+                name: 'coe',
+                source: new ol.source.XYZ({
+                    url: 'https://tiles.legiongis.com/kvrcoe/{z}/{x}/{y}.png'
+                })
+            })
+        };
+
+
+        // EMPTY LAYER
+        var blank = {
+            id: "blank",
+            layer: new ol.layer.Tile({
+                source: new ol.source.TileWMS({
+                    url: '',
+                })
+            })
+        };
+
+        var basemaps = [osm,relief,blank];
+        var overlays = [coe,blank];
+
+        var collection = new ol.Collection([osm.layer,coe.layer]);
+        $('#osm').addClass('selected');
+        $('#coe').addClass('selected');
+
+        var info_shown = false
+
+        var controls = [
+            new ol.control.MousePosition({
+                undefinedHTML: '<b>n/a</b>',
+                projection: 'EPSG:4326',
+                coordinateFormat: function(coordinate) {
+                    return ol.coordinate.format(coordinate, '<b>{x}, {y}</b>', 3)
+                }
+            }),
+            new ol.control.Zoom({
+                zoomInTipLabel: 'zoom in',
+                zoomOutTipLabel: 'zoom out'
+            }),
+            new ol.control.Attribution({
+                tipLabel: 'layer attributions',
+            })
+        ];
+
+        var map = new ol.Map({
+            target: 'map',
+            renderer: 'canvas',
+            layers: collection,
+            controls: controls,
+            view: new ol.View({
+                center: [-10086227.732484678, 5408855.804286924 ],
+                minZoom: 9,
+                maxZoom: 19,
+                zoom: 12,
+            }),
+            minZoomLevel: 7,
+        });
+
+        function selectBasemap() {
+            $('.bm').on('click', function() {
+                $('.bm').removeClass('selected');
+                $(this).addClass('selected');
+                for(var i=0; i < basemaps.length; i++) {
+                    var basemap = basemaps[i]
+                    if (basemap.id === $(this).attr('id')) {
+                        collection.setAt(0, basemap.layer);
+                        break;
+                    }
+                }
+                map.setLayerGroup = new ol.layer.Group(collection);
+            });
+        };
+
+        function selectOverlay() {
+            $('.hm').on('click', function() {
+                $('.hm').removeClass('selected');
+                $(this).addClass('selected');
+                for(var i=0; i < overlays.length; i++) {
+                    var overlay = overlays[i]
+                    if (overlay.id === $(this).attr('id')) {
+                        collection.setAt(1, overlay.layer);
+
+                        document.getElementById('layer-info').innerHTML = overlay.info
+                        break;
+                    }
+                }
+                map.setLayerGroup = new ol.layer.Group(collection);
+            });
+        };
+
+        function tempRemoveOverlay() {
+            var current_overlay = collection.getArray()[1];
+            $('#temp-remove').on('mousedown', function() {
+                current_overlay = collection.getArray()[1];
+                collection.setAt(1, blank.layer);
+                map.setLayerGroup = new ol.layer.Group(collection);
+            });
+            $('#temp-remove').on('mouseup', function() {
+                collection.setAt(1, current_overlay);
+                map.setLayerGroup = new ol.layer.Group(collection);
+            });
+        };
+
+        function toggleInfo() {
+            var current_overlay = collection.getArray()[1];
+            var info_text = current_overlay.info;
+            $("#toggleinfo").click(function(){
+                if ($("#layer-info").is(":hidden")) {
+                    $("#layer-info").show();
+                    document.getElementById('toggleinfo').innerHTML = "hide";
+                } else {
+                    $("#layer-info").hide();
+                    document.getElementById('toggleinfo').innerHTML = "show";
+                }
+            });
+        };
+
+        function toggleNote() {
+            $("#togglenote").click(function(){
+                if ($("#accuracy-box").is(":hidden")) {
+                    $("#accuracy-box").show();
+                    document.getElementById('togglenote').innerHTML = "hide";
+                } else {
+                    $("#accuracy-box").hide();
+                    document.getElementById('togglenote').innerHTML = "show";
+                }
+            });
+        };
+
+        $(document).ready(function() {
+            document.getElementById('layer-info').innerHTML = blank.info
+            toggleInfo();
+            toggleNote();
+
+            selectBasemap();
+            selectOverlay();
+            tempRemoveOverlay();
+
+        });
+
+        </script>
+    </body>
+</html>

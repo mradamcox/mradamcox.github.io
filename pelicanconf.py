@@ -8,6 +8,7 @@ SITENAME = u'Adam Cox'
 SITEURL = r'https://mradamcox.github.io'
 
 PATH = 'content'
+OUTPUT_PATH = 'docs/'
 
 STATIC_PATHS = [
     'extra',
