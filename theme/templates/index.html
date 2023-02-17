@@ -25,10 +25,9 @@
 
 {% block sidebar %}
 <div class="sidebar">
-  <span>Find me on...</span>
   <ul>
     {% for l in LINKS %}
-    <li><a href="{{ l.1 }}">{{ l.0 }}</a></li>
+    <li><a href="{{ l.1 }}" target="_blank">{{ l.0 }}</a></li>
     {% endfor %}
   </ul>
 </div>
