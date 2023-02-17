@@ -8,7 +8,7 @@ url: index.html
 
 I am a GIS specialist/developer, and often cartographer, who loves working with historical maps and open source software. My main tools are QGIS, Python, PostGIS, and Django. This site is a continual work-in-progress, but I work on a lot of fun projects so I try to share about them here.
 
-In summer of 2022 I completed MS Geography and MLIS degrees at Louisiana State University. My thesis, ["Creating a Public Space for Georeferencing Sanborn Maps: A Louisiana Case Study"](https://digitalcommons.lsu.edu/gradschool_theses/5641/) explored a crowdsourcing approach for content in the Library of Congress Sanborn maps collection. You can read a bit more about it [in the documentation](https://docs.oldinsurancemaps.net) or see the outcome on the project site: [oldinsurancemaps.net](https://oldinsurancemaps.net).
+In summer of 2022 I completed MS Geography and MLIS degrees at Louisiana State University. My thesis, ["Creating a Public Space for Georeferencing Sanborn Maps: A Louisiana Case Study"](https://digitalcommons.lsu.edu/gradschool_theses/5641/) explored a crowdsourcing approach for content in the Library of Congress Sanborn maps collection. You can read a more about it [in the documentation](https://about.oldinsurancemaps.net) or see the outcome on the project site: [oldinsurancemaps.net](https://oldinsurancemaps.net).
 
 I also have a geospatial consulting business, [Legion GIS](https://legiongis.com), through which I have worked extensively with the open source project [Arches](https://archesproject.org).
 
