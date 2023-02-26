@@ -12,6 +12,6 @@ In summer of 2022 I completed MS Geography and MLIS degrees at Louisiana State U
 
 I also have a geospatial consulting business, [Legion GIS](https://legiongis.com), through which I have worked extensively with the open source project [Arches](https://archesproject.org).
 
-You can find my almost-up-to-date CV [here](pages/cv.html).
+Here are my almost-up-to-date [resume](pages/resume.html) and [CV](pages/cv.html).
 
 Thanks for looking, and feel free to get in touch: <a class="email-address-txt"></a>.
