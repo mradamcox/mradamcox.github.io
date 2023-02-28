@@ -5,7 +5,7 @@ from datetime import date
 
 AUTHOR = u'Adam Cox'
 SITENAME = u'Adam Cox'
-SITEURL = r'https://mradamcox.github.io'
+SITEURL = ''
 
 PATH = 'content'
 
