@@ -6,7 +6,7 @@ template: page
 
 Thesis paper: ["Creating a Public Space for Georeferencing Sanborn Maps: A Louisiana Case Study"](https://digitalcommons.lsu.edu/gradschool_theses/5641/)
 
-For my Geography M.S. thesis at Louisiana State University I put together an open platform that allows anyone to georeference historical fire insurance maps that are held in the Library of Congress [digital Sanborn collection](https://loc.gov/collections/sanborn-maps). There are over 500,000 scanned documents in this collection, which cover 10,000+ communities in the US.
+For my Geography MS thesis at Louisiana State University I put together an open platform that allows anyone to georeference historical fire insurance maps that are held in the Library of Congress [digital Sanborn collection](https://loc.gov/collections/sanborn-maps). There are over 500,000 scanned documents in this collection, which cover 10,000+ communities in the US.
 
 The goal of this project is to create a space in which the public can help transform scanned
 maps into more reusable spatial layers, while also facilitating engagement with those maps.
