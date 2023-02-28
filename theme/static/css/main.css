@@ -62,6 +62,21 @@ pre {
     padding: 5px;
 }
 
+code {
+    color: #ce1818;
+}
+
+section hr {
+    /* border: dashed 2px #9caba1;
+    margin-right: 50px;
+    margin-left: 50px; */
+    border-style: none;
+    border-top-style: dotted;
+    border-color: #333;
+    border-width: 3px;
+    width: 5%;
+}
+
 pre.limit-height {
     max-height: 400px;
     overflow-y: scroll;
@@ -74,7 +89,8 @@ figcaption {
 }
 
 a, a:link {
-    color: #364DC9
+    color: #364DC9;
+    text-decoration: none;
 }
 
 a:hover {

@@ -42,7 +42,7 @@
     <div class="topbar">
       {% for p in pages|sort(attribute='sortorder') %}
       <div class="nav-btn {% if p == page %}active{% endif %} {% if loop.first %}nav-btn-first{% endif %} {% if loop.last %}nav-btn-last{% endif %}">
-        <a href="/{{ p.url }}"><h4>{{ p.title }}</h4></a>
+        <a href="/{{ p.url }}"><h4 style="height:100%">{{ p.title }}</h4></a>
       </div>
       {% endfor %}
     </div>
