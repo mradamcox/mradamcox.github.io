@@ -4,7 +4,7 @@ template: page
 
 <p style="text-align:center; margin-top: 15px"><strong>~ Current Work ~</strong></p>
 
-[Crowdsourced Sanborn Map Georeferencing](/pages/oldinsurancemaps.html) ([oldinsurancemaps.net](https://oldinsurancemaps.net))
+[Crowdsourced Sanborn Map Georeferencing](/pages/old-insurance-maps.html) ([oldinsurancemaps.net](https://oldinsurancemaps.net))
 
 ---
 
