@@ -7,7 +7,7 @@ var credits = L.control.attribution().addTo(map);
 credits.addAttribution('© <a href="https://www.mapbox.com/about/maps/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a></strong>');
 
 // make and add basemap layer from mapbox
-var mapbox_api_key = "pk.eyJ1IjoibGVnaW9uZ2lzIiwiYSI6ImNqbnc3ODVraDAwMW0za21lOG9oZG9meGcifQ.6_w6aZZf2QezFrGO-VLl8Q"
+var mapbox_api_key = "pk.eyJ1IjoibGVnaW9uZ2lzIiwiYSI6ImNrbXV4dDgxazAwN2Uyb3BmOG41Z3QxZmgifQ.2GoavKeggS1oqRR6H_EgHg"
 var dark_bm = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/dark-v9/tiles/256/{z}/{x}/{y}?'
     +'access_token='+mapbox_api_key,
     {maxNativeZoom:18,maxZoom:19}

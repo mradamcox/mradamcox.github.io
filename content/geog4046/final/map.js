@@ -132,8 +132,8 @@ var buildingsGeoJSONLayer = new ol.layer.Vector({
 });
 
 var stamenWatercolor = new ol.layer.Tile({
-  source: new ol.source.Stamen({
-    layer: 'watercolor'
+  source: new ol.source.XYZ({
+    url: 'https://tiles.stadiamaps.com/tiles/stamen_watercolor/{z}/{x}/{y}.jpg'
   })
 })
 
@@ -143,7 +143,7 @@ var stamenLabels = new ol.layer.Tile({
   })
 })
 
-var mapbox_key = "pk.eyJ1IjoibGVnaW9uZ2lzIiwiYSI6ImNpdzg1ZXVvbjAxa2IydG1zcm5kcnZ5NXIifQ.dTfsQ7s5nQv59mHKcNPi_w"
+var mapbox_key = "pk.eyJ1IjoibGVnaW9uZ2lzIiwiYSI6ImNrbXV4dDgxazAwN2Uyb3BmOG41Z3QxZmgifQ.2GoavKeggS1oqRR6H_EgHg"
 
 var businessesStyle = new ol.layer.Tile({
   source: new ol.source.XYZ({
