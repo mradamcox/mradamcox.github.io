@@ -1,8 +1,9 @@
-Title: Consolidating Pelican Build and Deployment with GitHub Actions
-Date: 2023-02-27
-Category: tech
-Author: Adam
-Tags: Pelican, GitHub Actions,
+title: Consolidating Pelican Build and Deployment with GitHub Actions
+date: 2023-02-27
+category: tech
+author: Adam
+slug: consolidating-pelican-build-and-deployment-with-github-actions
+tags: Pelican, GitHub Actions,
 
 I've been reworking the structure of this site a bit, mostly just in how it is built and deployed (surely not adding any interesting content...), and mostly just for "fun". Just a quick post here to record two updates I've made over the last couple of weeks in quick succession.
 

@@ -1,9 +1,10 @@
-Title: Bar and Restaurant Ownership in the French Quarter and Marigny
-Date: 2020-05-08
-Category: projects
-Author: Adam
-Tags: New Orleans, OSM
-Summary: This is a write-up for my final project in GEOG 4046. <a href="/geog4046/final/">View the Web Map</a> The goal with this web page project is to show bars, music clubs, and restaurants in downtown New Orleans--not just where they are, but who owns them. The map is focused on businesses located in the French Quarter and Marigny, and attempts to illustrate which establishments...
+title: Bar and Restaurant Ownership in the French Quarter and Marigny
+date: 2020-05-08
+category: projects
+author: Adam
+tags: New Orleans, OSM
+slug: bars-and-restaurants-in-fq-and-marigny
+summary: This is a write-up for my final project in GEOG 4046. <a href="/geog4046/final/">View the Web Map</a> The goal with this web page project is to show bars, music clubs, and restaurants in downtown New Orleans--not just where they are, but who owns them. The map is focused on businesses located in the French Quarter and Marigny, and attempts to illustrate which establishments...
 
 _This is a write-up for my final project in GEOG 4046. [View the Web Map](/geog4046/final/)_
 

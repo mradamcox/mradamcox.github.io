@@ -1,8 +1,9 @@
-Title: Moving to Pelican and GitHub Pages
-Date: 2016-09-09
-Category: news
-Author: Adam
-Tags: announcements, infrastructure, AWS
+title: Moving to Pelican and GitHub Pages
+date: 2016-09-09
+category: news
+author: Adam
+slug: moving-the-website
+tags: announcements, infrastructure, AWS
 
 In an effort to consolidate my non-business activities and save some money, I've just finished transferring this website from AWS EC2 to GitHub pages. I had built the site by hand, a small collection of html/php and css files, which is to say it was very simple and didn't need an actual server. I'd recently become familiar with Pelican and GitHub pages, so this seemed like a natural solution. (I'd also taken a stab at using Pelican and AWS S3, which is how I ran my business website for a while, but after repeated issues with the windows S3 CLI, I've found the following setup to be easier to maintain.)
 
