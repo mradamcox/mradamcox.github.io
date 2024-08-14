@@ -1,0 +1,28 @@
+media: theme/img
+content:
+  - name: posts
+    label: Posts
+    type: collection
+    path: content/posts
+    filename: '{slug}.md'
+    fields:
+      - name: title
+        label: Title
+        type: string
+      - name: date
+        label: Date
+        type: date
+        options:
+          format: yyyy-MM-dd
+      - name: category
+        label: Category
+        type: string
+      - name: author
+        label: Author
+        type: string
+      - name: tags
+        label: Tags
+        type: string
+      - name: summary
+        label: Summary
+        type: text
