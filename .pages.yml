@@ -1,4 +1,6 @@
-media: theme/img
+media: 
+  input: theme/static/img
+  output: theme/img
 content:
   - name: posts
     label: Posts
@@ -25,4 +27,7 @@ content:
         type: string
       - name: summary
         label: Summary
+        type: text
+      - name: body
+        label: Body
         type: text
