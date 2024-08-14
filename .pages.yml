@@ -30,4 +30,4 @@ content:
         type: text
       - name: body
         label: Body
-        type: text
+        type: rich-text
