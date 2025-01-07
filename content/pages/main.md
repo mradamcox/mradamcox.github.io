@@ -12,6 +12,6 @@ In summer of 2022 I completed MS Geography and MLIS degrees at Louisiana State U
 
 Currently, I work (remotely) as a research software engineer in the [Healthy Regions & Policies Lab](https://healthyregions.org), at the University of Illinois Urbana-Champaign. I also have a mostly-inactive geospatial consulting business, [Legion GIS](https://legiongis.com), through which I have worked extensively with the open source project [Arches](https://archesproject.org).
 
-Here are my almost-up-to-date [resume](pages/resume.html) and [CV](pages/cv.html).
+Here are my almost-up-to-date [resume](pages/resume.html), [CV](pages/cv.html), and [bio](pages/bio.html).
 
 Thanks for looking, and feel free to get in touch: <a class="email-address-txt"></a>.

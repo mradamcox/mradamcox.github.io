@@ -41,7 +41,7 @@ DEFAULT_DATE_FORMAT = ("%B %d, %Y")
 LINKS = (
     ('GitHub', "https://github.com/mradamcox", "/theme/img/github.png"),
     ('Observable', "https://observablehq.com/@mradamcox", "/theme/img/observablehq.png"),
-    ('Twitter', "https://www.twitter.com/mradamcox", "/theme/img/twitter.png"),
+    ('Mastodon', "https://mapstodon.space/@mradamcox", "/theme/img/mastodon-icon.png"),
     ('LinkedIn', "https://www.linkedin.com/in/mradamcox", "/theme/img/li.png"),
 )
 
