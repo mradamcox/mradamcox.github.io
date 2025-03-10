@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Final Project - GEOG 4046</title>
+    <script src="/theme/plugins/jquery/3.7.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="/theme/plugins/ol/6.15.1/ol.css" type="text/css">
+    <script src="/theme/plugins/ol/6.15.1/ol.js"></script>
+    <script src="https://openlayers.org/en/v6.3.1/examples/resources/mapbox-streets-v6-style.js"></script>
+    <link rel="stylesheet" href="map.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&:wght@300&display=swap" rel="stylesheet"> 
+  </head>
+  <body>
+    <div class="info-panel">
+        <div class="panel-title">
+            <h3>Bar and Restaurant Ownership in the French Quarter and Marigny</h3>
+            <a href="/bar-and-restaurant-ownership-in-the-french-quarter-and-marigny.html">about the map</a><br>
+            <em>data acquired May, 2020</em>
+        </div>
+        <hr>
+        <div class="panel-content">
+            <strong>business name</strong><br>
+            <span id="building-name">--</span><br>
+            <strong>owner name</strong></span><br>
+            <span id="owner-name">--</span><br>
+            <strong>businesses by same owner</strong><br>
+            <span id="related">--</span>
+        </div>
+    </div>
+    <div id="map"></div>
+    <script src="map.js"></script>
+  </body>
+</html>
