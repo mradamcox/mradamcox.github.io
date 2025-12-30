@@ -1,0 +1,92 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- website css -->
+    <link rel="stylesheet" href="/theme/css/main.css">
+    <link rel="stylesheet" href="/theme/css/map.css">
+
+    <title>Adam Cox</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+  <div class="container">
+    <div class="topbar">
+      <div class="nav-btn  nav-btn-first ">
+        <a href="/index.html"><h4 style="height:100%">MAIN</h4></a>
+      </div>
+      <div class="nav-btn   ">
+        <a href="/pages/projects.html"><h4 style="height:100%">PROJECTS</h4></a>
+      </div>
+      <div class="nav-btn   nav-btn-last">
+        <a href="/pages/posts.html"><h4 style="height:100%">POSTS</h4></a>
+      </div>
+    </div>
+    <div class="content-wrapper" style="display: flex;">
+      <div class="content">
+<div class="hp-header-inner">
+    <div class="page-header">
+        <div class="content-header">
+            <div id="title-block">
+                <h1>tag: AWS</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<blocks cols="2">
+        <div class="sec-article">
+            <div class="read-more">September 09, 2016</div>
+
+            <h3><a href="https://mradamcox.github.io/moving-the-website.html" rel=Bookmark title="Permalink to Moving to Pelican and GitHub Pages">Moving to Pelican and GitHub Pages</a></h3>
+            <p>
+            <p>In an effort to consolidate my non-business activities and save some money, I've just finished transferring this website from AWS EC2 to GitHub pages. I had built the site by hand, a small collection of html/php and css files, which is to say it was very simple and didn't …</p>            
+            </p>
+        </div>
+
+</blocks>
+
+      </div>
+      <div>
+      </div>
+    </div>
+    <div style="padding:0px 20px 10px 20px"><hr></div>
+    <div class="row footer">
+      <p>
+          <a href="https://github.com/mradamcox"><img src="/theme/img/github.png"></a>
+          <a href="https://observablehq.com/@mradamcox"><img src="/theme/img/observablehq.png"></a>
+          <a href="https://mapstodon.space/@mradamcox"><img src="/theme/img/mastodon-icon.png"></a>
+          <a href="https://www.linkedin.com/in/mradamcox"><img src="/theme/img/li.png"></a>
+          <a class="email-address"><img src="/theme/img/email.png"></a>
+      </p>
+      <p style="font-size:small">last updated December 30, 2025 | <a href="https://github.com/mradamcox/mradamcox.github.io">site source code</a> | built with <a href="http://getpelican.com/">Pelican</a></p>
+    </div>
+  </div>
+<script>
+
+window.onload = function() {
+    const c1 = "mr.adamcox";
+    const c2 = "@";
+    const c3 = "gmail.com";
+    const email = c1+c2+c3
+
+    var contentClass = document.getElementsByClassName("email-address-txt");
+    for (var i = 0; i < contentClass.length; i++) {
+        contentClass[i].innerHTML = email;
+        contentClass[i].setAttribute("href", "mailto:"+email);
+    }
+    var contentClass2 = document.getElementsByClassName("email-address");
+    for (var i = 0; i < contentClass2.length; i++) {
+        contentClass2[i].setAttribute("href", "mailto:"+email);
+    }
+}
+
+</script>
+</body>
+</html>

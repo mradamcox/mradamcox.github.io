@@ -1,0 +1,121 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- website css -->
+    <link rel="stylesheet" href="/theme/css/main.css">
+    <link rel="stylesheet" href="/theme/css/map.css">
+
+    <title>Consolidating Pelican Build and Deployment with GitHub Actions - Adam Cox</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+  <div class="container">
+    <div class="topbar">
+      <div class="nav-btn  nav-btn-first ">
+        <a href="/index.html"><h4 style="height:100%">MAIN</h4></a>
+      </div>
+      <div class="nav-btn   ">
+        <a href="/pages/projects.html"><h4 style="height:100%">PROJECTS</h4></a>
+      </div>
+      <div class="nav-btn   nav-btn-last">
+        <a href="/pages/posts.html"><h4 style="height:100%">POSTS</h4></a>
+      </div>
+    </div>
+    <div class="content-wrapper" style="display: flex;">
+      <div class="content">
+    <meta name="description" content="I've been reworking the structure of this site a bit, mostly just in how it is built and deployed (surely not adding any interesting content...), and mostly just for "fun". Just a quick post here to record two updates I've made over the last couple of weeks in quick succession …" />
+<div class="hp-header-inner">
+    <div>
+        <div id="title-block">
+            <h1>Consolidating Pelican Build and Deployment with GitHub Actions</h1>
+        </div>
+        <header class="header-article">
+            <div class="read-more">posted on February 27, 2023, by Adam</div>
+        </header>
+    </div>
+</div>
+<div class="content-article">
+    <section class='article'>
+        <div class="entry-content">
+            <p>I've been reworking the structure of this site a bit, mostly just in how it is built and deployed (surely not adding any interesting content...), and mostly just for "fun". Just a quick post here to record two updates I've made over the last couple of weeks in quick succession.</p>
+<h2>Getting Rid of the Output Submodule</h2>
+<p>A <a href="/moving-to-pelican-and-github-pages.html">long time ago</a>, I set this site up as two separate repos, one called <code>mradamcox.github.io-src</code> and another, which was setup as a submodule inside the first, called <code>mradamcox.github.io</code>. The structure was such that running <code>pelican content</code> in the <code>-src</code> repo would build the site directly into the submodule, which, as a separate repo with GitHub pages enabled, would automatically get built and deployed.</p>
+<p>Recently, however, I learned that GitHub pages can now build from a top-level <code>docs</code> directory in your repo, where before it would only build from the root directory. This meant that I was able to completely get rid of the submodule (no one really likes those anyway) and delete that repo, rename the source repo to remove <code>-src</code> from the end, and then update the <code>pelicanconf.py</code> file to output the build to a <code>./docs</code> directory.</p>
+<p>After that, running <code>pelican content</code> would build the site directly into <code>docs</code>, and then <code>git commit -s docs -m "rebuild site" &amp;&amp; git push</code> would update the code on GitHub and trigger the Pages deployment.</p>
+<h2>Using GitHub Actions</h2>
+<p>However, just today I was looking a bit further into Pelican for a work project, and found <a href="https://github.com/getpelican/pelican/issues/2993">this ticket</a> about automatic deployment with GitHub Actions. The benefit of this, I realized, is that you don't need to have a local clone that you build and then commit and push... Editing a single markdown file directly in GitHub would trigger an update on the live website.</p>
+<p>The ticket points to this GitHub Action, <a href="https://github.com/rehanhaider/pelican-to-github-pages">rehanhaider/pelican-to-github-pages</a>, and here it is in the <a href="https://github.com/marketplace/actions/pelican-to-github-pages">GitHub actions marketplace</a>.</p>
+<p>I followed the simple deployment steps, leaving out the <code>CNAME</code> setting as I don't have one for this site at this time, so my <code>.github/workflows/pelican.yml</code> file looks like this:</p>
+<div class="highlight"><pre><span></span><code><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">Deploy</span>
+
+<span class="n">on</span><span class="o">:</span>
+<span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="n">Trigger</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">workflow</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">push</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="n">branch</span><span class="o">,</span>
+<span class="w">  </span><span class="n">push</span><span class="o">:</span>
+<span class="w">    </span><span class="n">branches</span><span class="o">:</span>
+<span class="w">      </span><span class="o">-</span><span class="w"> </span><span class="n">master</span>
+
+<span class="n">jobs</span><span class="o">:</span>
+<span class="w">  </span><span class="n">build</span><span class="o">:</span>
+<span class="w">    </span><span class="n">runs</span><span class="o">-</span><span class="n">on</span><span class="o">:</span><span class="w"> </span><span class="n">ubuntu</span><span class="o">-</span><span class="n">latest</span>
+<span class="w">    </span><span class="n">steps</span><span class="o">:</span>
+<span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="n">uses</span><span class="o">:</span><span class="w"> </span><span class="n">actions</span><span class="o">/</span><span class="n">checkout</span><span class="err">@</span><span class="n">v2</span>
+<span class="w">      </span><span class="k">with</span><span class="o">:</span><span class="w"> </span>
+<span class="w">        </span><span class="n">submodules</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;true&#39;</span>
+<span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="n">uses</span><span class="o">:</span><span class="w"> </span><span class="n">rehanhaider</span><span class="o">/</span><span class="n">pelican</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">github</span><span class="o">-</span><span class="n">pages</span><span class="err">@</span><span class="n">v1</span><span class="o">.</span><span class="mf">0.3</span>
+<span class="w">      </span><span class="n">env</span><span class="o">:</span>
+<span class="w">        </span><span class="n">GITHUB_TOKEN</span><span class="o">:</span><span class="w"> </span><span class="n">$</span><span class="o">{{</span><span class="n">secrets</span><span class="o">.</span><span class="na">GITHUB_TOKEN</span><span class="o">}}</span>
+</code></pre></div>
+
+<p>While this did immediately build the content using the settings in <code>publishconf.py</code> every time a push event hit the <code>master</code> branch, it wasn't yet deploying to the public pages website.</p>
+<p>In the repo Settings, I realized GitHub pages was still trying to build off of the <code>./docs</code> directory in the master branch, but the new Action wasn't actually committing anything to that directory. Judging from the logs, it was actually committing and pushing the build to a new <code>gh-pages</code> branch (which I hadn't used at all in this repo yet), so I switch the GitHub Pages configuration to build from the root of that branch, and it worked as a charm.</p>
+<hr>
+<p>One thing I found a little confusing at first is that GitHub Pages is listed as an Action in the repo already, so now there are two actions: 1) the one I just added, which runs on every push to <code>master</code>, and finishes by pushing to <code>gh-pages</code>, and 2) the default GitHub Pages action which, now, is triggered on any push to <code>gh-pages</code>, and finishes by publishing that content to this site.</p>
+<p>Maybe this setup will last another seven years...</p>
+        </div>
+    </section>
+    <hr>
+    <footer class="footer-article">
+        <div class="tags-and-categories">Filed: <a href="https://mradamcox.github.io/category/tech.html">tech</a>
+        | Tagged: <a href="https://mradamcox.github.io/tag/pelican.html">Pelican</a> <a href="https://mradamcox.github.io/tag/github-actions.html">GitHub Actions</a>     </footer>
+</div>
+      </div>
+      <div>
+      </div>
+    </div>
+    <div style="padding:0px 20px 10px 20px"><hr></div>
+    <div class="row footer">
+      <p>
+          <a href="https://github.com/mradamcox"><img src="/theme/img/github.png"></a>
+          <a href="https://observablehq.com/@mradamcox"><img src="/theme/img/observablehq.png"></a>
+          <a href="https://mapstodon.space/@mradamcox"><img src="/theme/img/mastodon-icon.png"></a>
+          <a href="https://www.linkedin.com/in/mradamcox"><img src="/theme/img/li.png"></a>
+          <a class="email-address"><img src="/theme/img/email.png"></a>
+      </p>
+      <p style="font-size:small">last updated December 30, 2025 | <a href="https://github.com/mradamcox/mradamcox.github.io">site source code</a> | built with <a href="http://getpelican.com/">Pelican</a></p>
+    </div>
+  </div>
+<script>
+
+window.onload = function() {
+    const c1 = "mr.adamcox";
+    const c2 = "@";
+    const c3 = "gmail.com";
+    const email = c1+c2+c3
+
+    var contentClass = document.getElementsByClassName("email-address-txt");
+    for (var i = 0; i < contentClass.length; i++) {
+        contentClass[i].innerHTML = email;
+        contentClass[i].setAttribute("href", "mailto:"+email);
+    }
+    var contentClass2 = document.getElementsByClassName("email-address");
+    for (var i = 0; i < contentClass2.length; i++) {
+        contentClass2[i].setAttribute("href", "mailto:"+email);
+    }
+}
+
+</script>
+</body>
+</html>

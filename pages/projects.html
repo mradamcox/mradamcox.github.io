@@ -1,0 +1,106 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- website css -->
+    <link rel="stylesheet" href="/theme/css/main.css">
+    <link rel="stylesheet" href="/theme/css/map.css">
+
+    <title>PROJECTS - Adam Cox</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+  <div class="container">
+    <div class="topbar">
+      <div class="nav-btn  nav-btn-first ">
+        <a href="/index.html"><h4 style="height:100%">MAIN</h4></a>
+      </div>
+      <div class="nav-btn active  ">
+        <a href="/pages/projects.html"><h4 style="height:100%">PROJECTS</h4></a>
+      </div>
+      <div class="nav-btn   nav-btn-last">
+        <a href="/pages/posts.html"><h4 style="height:100%">POSTS</h4></a>
+      </div>
+    </div>
+    <div class="content-wrapper" style="display: flex;">
+      <div class="content">
+    <section class="article">
+    
+    <p style="text-align:center; margin-top: 15px"><strong>~ Current Work ~</strong></p>
+
+<p><a href="/pages/old-insurance-maps.html">Crowdsourced Sanborn Map Georeferencing</a> (<a href="https://oldinsurancemaps.net">oldinsurancemaps.net</a>)</p>
+<hr>
+<p style="text-align:center"><strong>~ Old Map Projects ~</strong></p>
+
+<p>I've been georeferencing historical maps for fun and for work for a number of years. Though the projects I've worked on are all over the place, and some no longer available online, I try to maintain and reuse the map layers here as well as possible.</p>
+<h2>"QGIS and GIMP for Enhancing Historic Maps" ~ <a href="https://docs.google.com/presentation/d/e/2PACX-1vTsayFBVmMWvHRS6CLXnS0onRCX0S3N1rhZGWzsLLE-DnRhBHUTmn8wpBjSOtSVqdjVIzRLETLykv_a/pub?start=false&amp;loop=false&amp;delayms=3000">slides</a> ~ <a href="https://www.youtube.com/watch?v=N1G0qyETCow&amp;feature=youtu.be">video</a></h2>
+<p>In July 2020 I presented at the QGIS North America virtual meeting about how I use
+GIMP to edit georeferenced historical maps.</p>
+<h2>"New Techniques for Old Maps" ~ <a href="https://observablehq.com/collection/@mradamcox/a-break-from-the-past">notebook collection</a></h2>
+<p>For a digital humanities course in fall 2019, I made this collection of Observable notebooks to illustrate some new ideas and techniques I like to use with historical maps on the web.</p>
+<h2>Armed Forces Retirement Home, Washington, D.C. ~ <a href="/maps/afrh_historicmaps.html">web map</a></h2>
+<p>This was a staging ground for 2015 work I did on the Armed Forces Retirement Home implementation of Arches (<a href="https://afrh-iris.com">afrh-iris.com</a>).</p>
+<h2>Natchitoches Parish, LA ~ <a href="/maps/natchitoches_parish.html">web map</a> ~ <a href="https://observablehq.com/@mradamcox/northwest-louisiana-historic-maps?collection=@mradamcox/web-maps">notebook</a></h2>
+<p>View the many historic map overlays and custom basemaps that I created for the Cane River Heritage Inventory &amp; Map, which is no longer maintained. These included scans of "Captured Confederate Maps"
+I obtained through the National Archives (see the notebook above for more information).</p>
+<h2>Vernon County, WI ~ <a href="/maps/vernon_county.html">web map</a></h2>
+<p>This web map features two special layers related to Vernon County: a 1967 US Army Corps of Engineers map of the Kickapoo Valley Reserve and a LiDAR-derived relief basemap that I made in TileMill.</p>
+<hr>
+<p style="text-align:center"><strong>~ Other Projects ~</strong></p>
+
+<h2>Cane River Memories Interviews ~ <a href="/pages/cane-river-memories-interviews.html">audio</a></h2>
+<p>I worked with these recordings a bit for the Cane River Heritage Inventory &amp; Map,
+and I've left them available here for the time being, as that project is no longer
+maintained.</p>
+<div style="display:flex; flex-direction:column;">
+  <div style="display:flex; flex-direction:row; min-height:50px; border: 1px solid grey; border-radius: 4px; background: #E1E1E1;">
+    <div style="padding: 0px 10px;">
+        <h2>Web Maps in Observable Notebooks</h2>
+      <p>I use Observable a lot to create web maps--sometimes to share ideas, other times to just test out new layers.</p>
+    </div>
+    <div style="max-height:100%;">
+      <a href="https://observablehq.com/collection/@mradamcox/web-maps"><img src="/theme/img/obs-img.png" /></a>
+    </div>
+  </div>
+</div>
+    </section>
+      </div>
+      <div>
+      </div>
+    </div>
+    <div style="padding:0px 20px 10px 20px"><hr></div>
+    <div class="row footer">
+      <p>
+          <a href="https://github.com/mradamcox"><img src="/theme/img/github.png"></a>
+          <a href="https://observablehq.com/@mradamcox"><img src="/theme/img/observablehq.png"></a>
+          <a href="https://mapstodon.space/@mradamcox"><img src="/theme/img/mastodon-icon.png"></a>
+          <a href="https://www.linkedin.com/in/mradamcox"><img src="/theme/img/li.png"></a>
+          <a class="email-address"><img src="/theme/img/email.png"></a>
+      </p>
+      <p style="font-size:small">last updated December 30, 2025 | <a href="https://github.com/mradamcox/mradamcox.github.io">site source code</a> | built with <a href="http://getpelican.com/">Pelican</a></p>
+    </div>
+  </div>
+<script>
+
+window.onload = function() {
+    const c1 = "mr.adamcox";
+    const c2 = "@";
+    const c3 = "gmail.com";
+    const email = c1+c2+c3
+
+    var contentClass = document.getElementsByClassName("email-address-txt");
+    for (var i = 0; i < contentClass.length; i++) {
+        contentClass[i].innerHTML = email;
+        contentClass[i].setAttribute("href", "mailto:"+email);
+    }
+    var contentClass2 = document.getElementsByClassName("email-address");
+    for (var i = 0; i < contentClass2.length; i++) {
+        contentClass2[i].setAttribute("href", "mailto:"+email);
+    }
+}
+
+</script>
+</body>
+</html>

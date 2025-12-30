@@ -1,0 +1,91 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- website css -->
+    <link rel="stylesheet" href="/theme/css/main.css">
+    <link rel="stylesheet" href="/theme/css/map.css">
+
+    <title>Moving to Pelican and GitHub Pages - Adam Cox</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+  <div class="container">
+    <div class="topbar">
+      <div class="nav-btn  nav-btn-first ">
+        <a href="/index.html"><h4 style="height:100%">MAIN</h4></a>
+      </div>
+      <div class="nav-btn   ">
+        <a href="/pages/projects.html"><h4 style="height:100%">PROJECTS</h4></a>
+      </div>
+      <div class="nav-btn   nav-btn-last">
+        <a href="/pages/posts.html"><h4 style="height:100%">POSTS</h4></a>
+      </div>
+    </div>
+    <div class="content-wrapper" style="display: flex;">
+      <div class="content">
+    <meta name="description" content="In an effort to consolidate my non-business activities and save some money, I've just finished transferring this website from AWS EC2 to GitHub pages. I had built the site by hand, a small collection of html/php and css files, which is to say it was very simple and didn't …" />
+<div class="hp-header-inner">
+    <div>
+        <div id="title-block">
+            <h1>Moving to Pelican and GitHub Pages</h1>
+        </div>
+        <header class="header-article">
+            <div class="read-more">posted on September 09, 2016, by Adam</div>
+        </header>
+    </div>
+</div>
+<div class="content-article">
+    <section class='article'>
+        <div class="entry-content">
+            <p>In an effort to consolidate my non-business activities and save some money, I've just finished transferring this website from AWS EC2 to GitHub pages. I had built the site by hand, a small collection of html/php and css files, which is to say it was very simple and didn't need an actual server. I'd recently become familiar with Pelican and GitHub pages, so this seemed like a natural solution. (I'd also taken a stab at using Pelican and AWS S3, which is how I ran my business website for a while, but after repeated issues with the windows S3 CLI, I've found the following setup to be easier to maintain.)</p>
+<p>The most time-consuming part of the process was creating this theme to mimic the original website's style, which I had spent a good deal of time on originally. Now that's all done, and I've set up two repositories as described in <a href="https://fedoramagazine.org/make-github-pages-blog-with-pelican/">this Fedora Magazine article</a>. One repo, <a href="https://github.com/mradamcox/mradamcox.github.io-src">mradamcox.github.io-src</a>, is the full pelican project, with the theme and settings, while the second, <a href="https://github.com/mradamcox/mradamcox.github.io">mradamcox.github.io</a>, is a sub-module inside the first, "posing" as the Pelican output folder. It works great, and is similar to how I've come to host my business site as well.</p>
+<p>Finally, I still wanted to use the original domain, www.adamcfcox.com. GitHub pages allows you to do this, by 1. saving a custom domain name in the mradamcox.github.io repo settings, and then 2. creating a CNAME record in the DNS that points back to mradamcox.github.io. Now when you go to <a href="http://mradamcox.github.io">http://mradamcox.github.io</a> or <a href="http://www.adamcfcox.com">http://www.adamcfcox.com</a>, you are ending up at the same static site, served directly from the mradamcox.github.io repo.</p>
+<p>All in all, I am now one step closer to being able to stop my only remaining personal EC2 instance. Transferring a GeoServer installation is the only task that remains...</p>
+        </div>
+    </section>
+    <hr>
+    <footer class="footer-article">
+        <div class="tags-and-categories">Filed: <a href="https://mradamcox.github.io/category/news.html">news</a>
+        | Tagged: <a href="https://mradamcox.github.io/tag/announcements.html">announcements</a> <a href="https://mradamcox.github.io/tag/infrastructure.html">infrastructure</a> <a href="https://mradamcox.github.io/tag/aws.html">AWS</a>     </footer>
+</div>
+      </div>
+      <div>
+      </div>
+    </div>
+    <div style="padding:0px 20px 10px 20px"><hr></div>
+    <div class="row footer">
+      <p>
+          <a href="https://github.com/mradamcox"><img src="/theme/img/github.png"></a>
+          <a href="https://observablehq.com/@mradamcox"><img src="/theme/img/observablehq.png"></a>
+          <a href="https://mapstodon.space/@mradamcox"><img src="/theme/img/mastodon-icon.png"></a>
+          <a href="https://www.linkedin.com/in/mradamcox"><img src="/theme/img/li.png"></a>
+          <a class="email-address"><img src="/theme/img/email.png"></a>
+      </p>
+      <p style="font-size:small">last updated December 30, 2025 | <a href="https://github.com/mradamcox/mradamcox.github.io">site source code</a> | built with <a href="http://getpelican.com/">Pelican</a></p>
+    </div>
+  </div>
+<script>
+
+window.onload = function() {
+    const c1 = "mr.adamcox";
+    const c2 = "@";
+    const c3 = "gmail.com";
+    const email = c1+c2+c3
+
+    var contentClass = document.getElementsByClassName("email-address-txt");
+    for (var i = 0; i < contentClass.length; i++) {
+        contentClass[i].innerHTML = email;
+        contentClass[i].setAttribute("href", "mailto:"+email);
+    }
+    var contentClass2 = document.getElementsByClassName("email-address");
+    for (var i = 0; i < contentClass2.length; i++) {
+        contentClass2[i].setAttribute("href", "mailto:"+email);
+    }
+}
+
+</script>
+</body>
+</html>
