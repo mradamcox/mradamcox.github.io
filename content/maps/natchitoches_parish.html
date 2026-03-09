@@ -90,7 +90,7 @@
 
         <!-- actual map code -->
         <script>
-        var tiles_legion = 'https://tiles.legiongis.com/';
+        var tiles_bucket = 'https://legion-maps.us-southeast-1.linodeobjects.com';
 
         arrayOSM = ["http://otile1.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpg",
                     "http://otile2.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpg",
@@ -120,60 +120,108 @@
         var usgs = new ol.layer.Tile({
             name: 'usgs',
             source: new ol.source.XYZ({
-                url: tiles_legion + 'drg/{z}/{x}/{y}.png',
+                url: tiles_bucket + '/tiles/drg/{z}/{x}/{y}.png',
             })
         });
 
         var civilwarroadmap = new ol.layer.Tile({
             name: 'road',
             source: new ol.source.XYZ({
-                url: tiles_legion + 'civilwarroadmap/{z}/{x}/{y}.png'
+                url: tiles_bucket + '/tiles/civilwarroadmap/{z}/{x}/{y}.png'
             })
         });
 
         var relief = new ol.layer.Tile({
             name: 'relief',
             source: new ol.source.XYZ({
-                url: tiles_legion + 'hillshade/{z}/{x}/{y}.png'
+                url: tiles_bucket + '/tiles/hillshade/{z}/{x}/{y}.png'
             }),
         });
 
         var elev = new ol.layer.Tile({
             name: 'elev',
             source: new ol.source.XYZ({
-                url: tiles_legion + 'relief_basemap/{z}/{x}/{y}.png',
+                url: tiles_bucket + '/tiles/relief_basemap/{z}/{x}/{y}.png',
             }),
             opacity: .95
         });
 
-        var confed_full = new ol.layer.Tile({
-            name: 'confed_full',
-            source: new ol.source.TileWMS({
-                url: "https://gn.legiongis.com/geoserver/ows",
-                params: {
-                    'LAYERS': 'rg77z33:confedmaps_full',
-                    'TILED': true,
-                    },
-                serverType: 'geoserver'
-            })
-        });
+        var titiler_url = "https://titiler.oldinsurancemaps.net/cog/tiles/WebMercatorQuad/{z}/{x}/{y}.png"
 
-        var confed_trans = new ol.layer.Tile({
-            name: 'confed_trans',
-            source: new ol.source.TileWMS({
-                url: "https://gn.legiongis.com/geoserver/ows",
-                params: {
-                    'LAYERS': 'rg77z33:confedmaps_trans',
-                    'TILED': true,
-                    },
-                serverType: 'geoserver'
-            })
-        });
+        var confed_full = new ol.layer.Group({
+            layers: [
+                new ol.layer.Tile({
+                    name: 'sheet41_full_opt',
+                    source: new ol.source.XYZ({
+                        url: titiler_url + `?url=${tiles_bucket}/crnha/sheet41_full_opt.tif`
+                    })
+                }),
+                new ol.layer.Tile({
+                    name: 'sheet42_full_opt',
+                    source: new ol.source.XYZ({
+                        url: titiler_url + `?url=${tiles_bucket}/crnha/sheet42_full_opt.tif`
+                    })
+                }),
+                new ol.layer.Tile({
+                    name: 'sheet43_full_opt',
+                    source: new ol.source.XYZ({
+                        url: titiler_url + `?url=${tiles_bucket}/crnha/sheet43_full_opt.tif`
+                    })
+                }),
+                new ol.layer.Tile({
+                    name: 'sheet44_full_opt',
+                    source: new ol.source.XYZ({
+                        url: titiler_url + `?url=${tiles_bucket}/crnha/sheet44_full_opt.tif`
+                    })
+                }),
+                new ol.layer.Tile({
+                    name: 'sheet45_full_opt',
+                    source: new ol.source.XYZ({
+                        url: titiler_url + `?url=${tiles_bucket}/crnha/sheet45_full_opt.tif`
+                    })
+                }),
+            ]
+        })
+
+        var confed_trans = new ol.layer.Group({
+            layers: [
+                new ol.layer.Tile({
+                    name: 'sheet41_trans',
+                    source: new ol.source.XYZ({
+                        url: titiler_url + `?url=${tiles_bucket}/crnha/sheet41_trans-bw_opt.tiff`
+                    })
+                }),
+                new ol.layer.Tile({
+                    name: 'sheet42_trans',
+                    source: new ol.source.XYZ({
+                        url: titiler_url + `?url=${tiles_bucket}/crnha/sheet42_trans-bw_opt.tiff`
+                    })
+                }),
+                new ol.layer.Tile({
+                    name: 'sheet43_trans',
+                    source: new ol.source.XYZ({
+                        url: titiler_url + `?url=${tiles_bucket}/crnha/sheet43_trans-bw_opt.tiff`
+                    })
+                }),
+                new ol.layer.Tile({
+                    name: 'sheet44_trans',
+                    source: new ol.source.XYZ({
+                        url: titiler_url + `?url=${tiles_bucket}/crnha/sheet44_trans-bw_opt.tiff`
+                    })
+                }),
+                new ol.layer.Tile({
+                    name: 'sheet45_trans',
+                    source: new ol.source.XYZ({
+                        url: titiler_url + `?url=${tiles_bucket}/crnha/sheet45_trans-bw_opt.tiff`
+                    })
+                }),
+            ]
+        })
 
         var platmaps = new ol.layer.Tile({
             name: 'platmaps',
             source: new ol.source.XYZ({
-                url: tiles_legion + 'historictownplats/{z}/{x}/{y}.png'
+                url: tiles_bucket + '/tiles/historictownplats/{z}/{x}/{y}.png'
             })
         });
 
